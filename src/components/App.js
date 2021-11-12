@@ -2,11 +2,14 @@ import {Component} from 'react';
 import axios from 'axios';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
+
 import './App.css'
 
 import Nav from './Nav';
 import SignUp from './SignUp';
 import Users from './User';
+import Login from './Login';
+
 
 const SERVER_URL = 'http://localhost:3000/users';
 
@@ -27,6 +30,8 @@ class App extends Component {
     });
   }
 
+// TODO: add if conditionals to render login option before signup 
+
   render() {
     return (
       <Router>
@@ -35,6 +40,7 @@ class App extends Component {
           <Routes>
             <Route path='/' exact element={<Home />} />
             <Route path='/user' element={<Users />} />
+            <Route path='/login' element={<Login />} />
           </Routes>
           {this.state.user.name ? <h2>Welcome {this.state.user.name}</h2> : 
             <SignUp signUp={this.signUp} />

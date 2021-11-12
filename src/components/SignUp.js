@@ -19,7 +19,6 @@ class SignUp extends Component {
     });
   }
 
-  // TODO: Create user
   _handleSubmit(event) {
     event.preventDefault();
     this.props.signUp(this.state);

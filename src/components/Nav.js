@@ -10,8 +10,8 @@ function Nav() {
         <Link to='/user'>
           <li>User</li>
         </Link>
-        <Link to='/login'>
-          <li>Login</li>
+        <Link to='/signin'>
+          <li>Sign In</li>
         </Link>
       </ul>
     </nav>

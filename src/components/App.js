@@ -2,16 +2,18 @@ import {Component} from 'react';
 import axios from 'axios';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
-
 import './App.css'
+
 
 import Nav from './Nav';
 import SignUp from './SignUp';
 import Users from './User';
-import Login from './Login';
+import SignIn from './SignIn';
 
 
 const SERVER_URL = 'http://localhost:3000/users';
+
+
 
 class App extends Component {
   constructor() {
@@ -21,6 +23,7 @@ class App extends Component {
     }
 
     this.signUp = this.signUp.bind(this);
+    this.signIn = this.signIn.bind(this);
   }
 
   signUp(user) {
@@ -30,7 +33,37 @@ class App extends Component {
     });
   }
 
-// TODO: add if conditionals to render login option before signup 
+  signIn = (user) => {
+    fetch("http://localhost:3000/signin", {
+        method: "POST",
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            user: {
+                email: user.email,
+                password: user.password
+            }
+        })
+    })
+    .then(response => response.json())
+    .then(result => {
+        if (result.token){
+        localStorage.setItem('token', result.token)
+        this.setState({
+            user: result.user
+            })
+        }
+        else {
+            this.setState({
+                error: result.error
+            })
+        }
+    })
+  }
+
+// TODO: add if conditionals to render login option before signup
 
   render() {
     return (
@@ -40,10 +73,13 @@ class App extends Component {
           <Routes>
             <Route path='/' exact element={<Home />} />
             <Route path='/user' element={<Users />} />
-            <Route path='/login' element={<Login />} />
+
           </Routes>
-          {this.state.user.name ? <h2>Welcome {this.state.user.name}</h2> : 
+          {this.state.user.name ? <h2>Welcome {this.state.user.name}</h2> : (
+            <>
+            <SignIn signIn={this.signIn}/>
             <SignUp signUp={this.signUp} />
+            </>)
           }
         </div>
       </Router>

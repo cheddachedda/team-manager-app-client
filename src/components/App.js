@@ -30,7 +30,7 @@ class App extends Component {
     });
   }
 
-// TODO: add if conditionals to render login option before signup 
+// TODO: add if conditionals to render login option before signup
 
   render() {
     return (
@@ -39,8 +39,8 @@ class App extends Component {
           <Nav />
           <Routes>
             <Route path='/' exact element={<Home />} />
-            <Route path='/user' element={<Users />} />
-            <Route path='/login' element={<Login />} />
+            <Route path='/user' exact element={<Users currentUser={this.state.user}/>} />
+            <Route path='/login' exact element={<Login />} />
           </Routes>
           {this.state.user.name ? <h2>Welcome {this.state.user.name}</h2> : 
             <SignUp signUp={this.signUp} />

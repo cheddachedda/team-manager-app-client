@@ -72,7 +72,7 @@ class App extends Component {
           <Nav />
           <Routes>
             <Route path='/' exact element={<Home />} />
-            <Route path='/user' element={<Users />} />
+            <Route path='/user' exact element={<Users currentUser={this.state.user}/>} />
 
           </Routes>
           {this.state.user.name ? <h2>Welcome {this.state.user.name}</h2> : (

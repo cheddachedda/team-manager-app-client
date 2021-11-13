@@ -43,9 +43,10 @@ class SignUp extends Component {
     const fields = Object.keys(this.state); // this.state's keys as an array
     return (
       <div>
-        <h1>Sign up</h1>
+
         <form onSubmit={ this._handleSubmit } >
-          { fields.map(this.inputField) }
+          <h1>Sign up</h1>
+            { fields.map(this.inputField) }
           <input type="submit" />
         </form>
       </div>

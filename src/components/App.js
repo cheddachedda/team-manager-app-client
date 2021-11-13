@@ -26,6 +26,26 @@ class App extends Component {
     this.signIn = this.signIn.bind(this);
   }
 
+  componentDidMount(){
+    let token = localStorage.getItem('token')
+    if(token){
+      fetch('http://localhost:3000/profile', {
+        method: "GET",
+        headers: {
+          "Authorization": `Bearer ${token}`
+        }
+      })
+      .then(response => response.json())
+      .then(result => {
+        if(result.id){
+          this.setState({
+            user: result
+          })
+        }
+      })
+    }
+  }
+
   signUp(user) {
     axios.post(SERVER_URL, { user }).then((response) => {
       console.log(response.data);

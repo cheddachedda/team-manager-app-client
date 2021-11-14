@@ -8,11 +8,12 @@ class SignUp extends Component {
       name: '',
       email: '',
       password: '',
+      team_id: 0,
       captain: false
+
     }
     this._handleChange = this._handleChange.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
-    this._handleCheckbox = this._handleCheckbox.bind(this);
     this.inputField = this.inputField.bind(this);
   }
 
@@ -29,15 +30,6 @@ class SignUp extends Component {
     }
   }
 
-  _handleCheckbox(event) {
-    this.setState({
-    [event.target.name]: event.target.value
-
-    });
-  }
-
-
-
   _handleSubmit(event) {
     event.preventDefault();
     this.props.signUp(this.state);
@@ -52,7 +44,7 @@ class SignUp extends Component {
           onChange={ this._handleChange }
           name={ label }
           // required
-          type={label === 'captain' ? 'checkbox' : label || label === 'name' ? 'text' : label }
+          type={label === 'captain' ? 'checkbox' : label || label === 'team_id' ? 'integer' : label || label === 'name' ? 'text' : label }
 
           // value={ this.state[label] }
         />

@@ -1,23 +1,42 @@
 import { Component } from 'react';
 
+
 class SignUp extends Component {
   constructor() {
     super();
     this.state = {
       name: '',
       email: '',
-      password: ''
+      password: '',
+      captain: false
     }
     this._handleChange = this._handleChange.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
+    this._handleCheckbox = this._handleCheckbox.bind(this);
     this.inputField = this.inputField.bind(this);
   }
 
   _handleChange(event) {
+    let captain = this.state.captain
+    if(event.target.name === 'captain' ){
+      captain = true
+      this.state.captain = captain
+      console.log(this.state.captain)
+    } else {
+      this.setState({
+        [event.target.name]: event.target.value
+      });
+    }
+  }
+
+  _handleCheckbox(event) {
     this.setState({
-      [event.target.name]: event.target.value
+    [event.target.name]: event.target.value
+
     });
   }
+
+
 
   _handleSubmit(event) {
     event.preventDefault();
@@ -25,32 +44,41 @@ class SignUp extends Component {
   }
 
   inputField(label) {
+
     return (
       <label key={ label }>
         { label }
         <input
           onChange={ this._handleChange }
           name={ label }
-          required
-          type={ label === 'name' ? 'text' : label }
+          // required
+          type={label === 'captain' ? 'checkbox' : label || label === 'name' ? 'text' : label }
+
           // value={ this.state[label] }
         />
+
       </label>
     );
   }
 
+
   render() {
     const fields = Object.keys(this.state); // this.state's keys as an array
+
     return (
       <div>
 
         <form onSubmit={ this._handleSubmit } >
           <h1>Sign up</h1>
             { fields.map(this.inputField) }
+
+
           <input type="submit" />
         </form>
       </div>
     );
   }
 }
+
+
 export default SignUp;

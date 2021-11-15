@@ -4,13 +4,10 @@ import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 
 import './App.css'
 
-
 import Nav from './Nav';
 import SignUp from './SignUp';
 import Users from './User';
 import SignIn from './SignIn';
-
-
 
 const SERVER_URL = 'http://localhost:3000/users';
 
@@ -110,8 +107,8 @@ class App extends Component {
 }
 
 const Home =() => (
-  <div>
-    <h1>Home</h1>
+  <div className="home">
+      <h2>Home</h2>
   </div>
 );
 

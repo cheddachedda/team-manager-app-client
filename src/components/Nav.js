@@ -9,22 +9,25 @@ function pageRefresh() {
 
 function Nav() {
   return (
-    <nav>
-      <h3>Team Manager</h3>
-      <ul className='nav-links'>
-        <Link to='/user'>
-          <li>User</li>
-        </Link>
-        <Link to='/signin'>
-          <li>Sign In</li>
-        </Link>
-        <Link to={'/'}
-          onClick={pageRefresh}>
-
-          <li>Logout</li>
-        </Link>
-      </ul>
-    </nav>
+    <div className="Header">
+      <Link to='/'>
+      <h1>Team Manager</h1>
+      </Link>
+      <nav>
+        <ul className='nav-links'>
+          <Link to='/user'>
+            <li>User</li>
+          </Link>
+          <Link to='/signin'>
+            <li>Sign In</li>
+          </Link>
+          <Link to={'/'}
+            onClick={pageRefresh}>
+            <li>Logout</li>
+          </Link>
+        </ul>
+      </nav>
+    </div>
   );
 }
 

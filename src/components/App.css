@@ -1,3 +1,39 @@
+body, .header{
+  margin: 0;
+}
+
+h1{
+  background-color: forestgreen;
+  color: white;
+  margin: 0;
+  padding: 1rem;
+  font-size: 2.5rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 2rem;
+  background: black;
+}
+
+.nav-links, .nav-links a {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  color: white;
+}
+
+.user, .home{
+  margin:1rem;
+}
+
 form {
   margin: 3rem auto;
   display: flex;
@@ -12,20 +48,4 @@ form {
 
 form input{
   margin: 1rem;
-}
-
-nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  min-height: 10vh;
-  background: forestgreen;
-  color: white;
-}
-
-.nav-links {
-  width: 50%;
-  display: flex;
-  justify-content: space-around;
-  list-style: none;
 }

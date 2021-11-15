@@ -23,7 +23,7 @@ class SignIn extends Component {
     return (
       <div>
         <form onSubmit={this._handleSubmit}>
-            <h1> Sign In Form </h1>
+            <h2> Sign In </h2>
             <label> Email :</label>
             <input name='email' value={ this.state.email } onChange={ this._handleChange }/>
             <label> Password :</label>

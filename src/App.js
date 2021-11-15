@@ -16,8 +16,9 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      currentUser: {}
-    }
+      currentUser: {},
+      error: null
+    };
 
     this.signUp = this.signUp.bind(this);
     this.signIn = this.signIn.bind(this);
@@ -50,33 +51,20 @@ class App extends Component {
     });
   }
 
-  signIn = (user) => {
-    fetch("http://localhost:3000/signin", {
-        method: "POST",
-        headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            currentUser: {
-                email: user.email,
-                password: user.password
-            }
-        })
+  signIn(user) {
+    axios.post("http://localhost:3000/signin", {
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      user
     })
-    .then(response => response.json())
-    .then(result => {
-        if (result.token){
-        localStorage.setItem('token', result.token)
-        this.setState({
-            currentUser: result.user
-            })
-        }
-        else {
-            this.setState({
-                error: result.error
-            })
-        }
+    .then((response) => {
+      localStorage.setItem('token', response.data.token);
+      this.setState({ currentUser: response.data.user });
+    })
+    .catch((error) => {
+      this.setState({ error: error.response.data.error });
     })
   }
 
@@ -86,7 +74,7 @@ class App extends Component {
     return (
       <Router>
 
-        <Nav  />
+        <Nav currentUser={ this.state.currentUser } />
 
         <Routes>
           <Route path='/' element={<Home />} />

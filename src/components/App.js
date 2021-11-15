@@ -1,20 +1,17 @@
 import {Component} from 'react';
 import axios from 'axios';
-import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route, Link, Switch} from 'react-router-dom';
 
 import './App.css'
-
 
 import Nav from './Nav';
 import SignUp from './SignUp';
 import Users from './User';
 import SignIn from './SignIn';
-
+import Game from './Game';
 
 
 const SERVER_URL = 'http://localhost:3000/users';
-
-
 
 class App extends Component {
   constructor() {
@@ -93,6 +90,8 @@ class App extends Component {
           <Nav />
           <Routes>
             <Route path='/' exact element={<Home />} />
+            <Route path='/game' exact element={<Game />} />
+
             <Route path='/user' exact element={<Users currentUser={this.state.user}/>} />
 
           </Routes>
@@ -100,7 +99,6 @@ class App extends Component {
             <>
             <SignIn signIn={this.signIn}/>
             <SignUp signUp={this.signUp} />
-            
             </>)
           }
         </div>

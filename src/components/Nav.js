@@ -18,6 +18,9 @@ function Nav() {
         <Link to='/signin'>
           <li>Sign In</li>
         </Link>
+        <Link to='/game'>
+          <li>Game</li>
+        </Link>
         <Link to={'/'}
           onClick={pageRefresh}>
 

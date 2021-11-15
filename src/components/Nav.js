@@ -22,6 +22,7 @@ const Nav = (props) => {
         </Link>
         <Link to='/game'>
           <li>Game</li>
+        </Link>
 
         <Link to='/catgame'>
           <li>Meow-Meow-Meow</li>

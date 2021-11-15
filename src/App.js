@@ -9,6 +9,7 @@ import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
 import Users from './pages/User';
 import CatGame from './pages/CatGame.js';
+import Game from './components/Game.js'
 
 const SERVER_URL = 'http://localhost:3000/users';
 

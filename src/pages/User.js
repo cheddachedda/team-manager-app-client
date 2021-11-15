@@ -7,10 +7,10 @@ class Users extends Component {
       return (
         <div>
           <h1>Player Profile</h1>
-          <h2>{user.name}</h2>
-          <p>Email: {user.email}</p>
-          <p>Fines: {user.fines}</p>
-          <p>Balance: {user.balance}</p>
+          <h2>{ user.name }</h2>
+          <p>Email: { user.email }</p>
+          <p>Fines: { user.fines }</p>
+          <p>Balance: { user.balance }</p>
         </div>
       );
     } else {

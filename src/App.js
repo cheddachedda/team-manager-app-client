@@ -1,21 +1,16 @@
-import {Component} from 'react';
+import { Component } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link}  from 'react-router-dom';
 import axios from 'axios';
-import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 
 import './App.css'
-
-
-import Nav from './Nav';
-import SignUp from './SignUp';
-import Users from './User';
-import SignIn from './SignIn';
-import CatGame from './CatGame';
-
-
+import Nav from './components/Nav';
+import Home from './pages/Home';
+import SignUp from './pages/SignUp';
+import SignIn from './pages/SignIn';
+import Users from './pages/User';
+import CatGame from './pages/CatGame.js';
 
 const SERVER_URL = 'http://localhost:3000/users';
-
-
 
 class App extends Component {
   constructor() {
@@ -28,9 +23,9 @@ class App extends Component {
     this.signIn = this.signIn.bind(this);
   }
 
-  componentDidMount(){
-    let token = localStorage.getItem('token')
-    if(token){
+  componentDidMount() {
+    let token = localStorage.getItem('token');
+    if (token) {
       fetch('http://localhost:3000/profile', {
         method: "GET",
         headers: {
@@ -90,31 +85,19 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="App">
-          <Nav />
-          <Routes>
-            <Route path='/' exact element={<Home />} />
-            <Route path='/user' exact element={<Users currentUser={this.state.user}/>} />
 
-          </Routes>
-          {this.state.user.name ? <h2>Welcome {this.state.user.name}</h2> : (
-            <>
-            <SignIn signIn={this.signIn}/>
-            <SignUp signUp={this.signUp} />
+        <Nav />
 
-            </>)
-          }
-        <CatGame />
-        </div>
+        <Routes>
+          <Route path='/' exact element={<Home />} />
+          <Route path='/user' exact element={<Users currentUser={this.state.user}/>} />
+          <Route path='/signin' exact element={<SignIn />} />
+          <Route path='/catgame' exact element={<CatGame />} />}
+        </Routes>
+
       </Router>
     );
   }
 }
-
-const Home =() => (
-  <div>
-    <h1>Home</h1>
-  </div>
-);
 
 export default App;

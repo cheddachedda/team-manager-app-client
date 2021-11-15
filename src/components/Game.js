@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import './Game.css'
+import '../css/Game.css'
 
 const SERVER_URL = "http://localhost:3000/games.json";
 

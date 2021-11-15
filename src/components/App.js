@@ -97,7 +97,7 @@ class App extends Component {
             <>
             <SignIn signIn={this.signIn}/>
             <SignUp signUp={this.signUp} />
-            
+
             </>)
           }
         </div>

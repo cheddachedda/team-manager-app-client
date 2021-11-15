@@ -89,11 +89,11 @@ class App extends Component {
         <Nav />
 
         <Routes>
-          <Route path='/' exact element={<Home />} />
-          <Route path='/user' exact element={<Users currentUser={this.state.user}/>} />
-          <Route path='/signup' exact element={<SignUp />} />
-          <Route path='/signin' exact element={<SignIn />} />
-          <Route path='/catgame' exact element={<CatGame />} />}
+          <Route path='/' element={<Home />} />
+          <Route path='/user' element={<Users currentUser={this.state.user}/>} />
+          <Route path='/signup' element={<SignUp />} />
+          <Route path='/signin' element={<SignIn />} />
+          <Route path='/catgame' element={<CatGame />} />}
         </Routes>
 
       </Router>

@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link}  from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route }  from 'react-router-dom';
 import axios from 'axios';
 
 import './App.css'
@@ -91,6 +91,7 @@ class App extends Component {
         <Routes>
           <Route path='/' exact element={<Home />} />
           <Route path='/user' exact element={<Users currentUser={this.state.user}/>} />
+          <Route path='/signup' exact element={<SignUp />} />
           <Route path='/signin' exact element={<SignIn />} />
           <Route path='/catgame' exact element={<CatGame />} />}
         </Routes>

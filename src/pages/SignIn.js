@@ -1,11 +1,10 @@
 import { Component } from 'react';
 
 class SignIn extends Component {
-
-    state = {
-      email: '',
-      password: ''
-    }
+  state = {
+    email: '',
+    password: ''
+  }
 
   _handleChange = (event) => {
     this.setState({

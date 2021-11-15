@@ -1,0 +1,14 @@
+
+tr {
+  width: 2rem;
+}
+
+td,
+th {
+  border: 1px solid black;
+  width: 6rem;
+  text-align: center;
+}
+table {
+  margin: 0 auto;
+}

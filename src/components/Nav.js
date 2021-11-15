@@ -20,8 +20,13 @@ const Nav = (props) => {
         <Link to='/signin'>
           <li>Sign In</li>
         </Link>
+        <Link to='/game'>
+          <li>Game</li>
+        </Link>
+
         <Link to='/catgame'>
           <li>Meow-Meow-Meow</li>
+
         </Link>
         <Link to={'/'}
           onClick={pageRefresh}>

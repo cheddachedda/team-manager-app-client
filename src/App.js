@@ -9,6 +9,7 @@ import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
 import Users from './pages/User';
 import CatGame from './pages/CatGame.js';
+import Game from './components/Game.js'
 
 const SERVER_URL = 'http://localhost:3000/users';
 
@@ -81,6 +82,7 @@ class App extends Component {
           <Route path='/user' element={<Users currentUser={ this.state.currentUser }/>} />
           <Route path='/signup' element={<SignUp />} />
           <Route path='/signin' element={<SignIn signIn={ this.signIn } />} />
+          <Route path='/game' exact element={<Game />} />
           <Route path='/catgame' element={<CatGame />} />}
         </Routes>
 

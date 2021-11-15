@@ -16,7 +16,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      user: {}
+      currentUser: {}
     }
 
     this.signUp = this.signUp.bind(this);
@@ -36,7 +36,7 @@ class App extends Component {
       .then(result => {
         if(result.id){
           this.setState({
-            user: result
+            currentUser: result
           })
         }
       })
@@ -46,7 +46,7 @@ class App extends Component {
   signUp(user) {
     axios.post(SERVER_URL, { user }).then((response) => {
       console.log(response.data);
-      this.setState({ user: response.data });
+      this.setState({ currentUser: response.data });
     });
   }
 
@@ -58,7 +58,7 @@ class App extends Component {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            user: {
+            currentUser: {
                 email: user.email,
                 password: user.password
             }
@@ -69,7 +69,7 @@ class App extends Component {
         if (result.token){
         localStorage.setItem('token', result.token)
         this.setState({
-            user: result.user
+            currentUser: result.user
             })
         }
         else {
@@ -86,15 +86,15 @@ class App extends Component {
     return (
       <Router>
 
-        <Nav />
+        <Nav  />
 
         <Routes>
-          <Route path='/' exact element={<Home />} />
-          <Route path='/user' exact element={<Users currentUser={this.state.user}/>} />
+          <Route path='/' element={<Home />} />
+          <Route path='/user' element={<Users currentUser={ this.state.currentUser }/>} />
+          <Route path='/signup' element={<SignUp />} />
+          <Route path='/signin' element={<SignIn signIn={ this.signIn } />} />
           <Route path='/game' exact element={<Game />} />
-          <Route path='/signup' exact element={<SignUp />} />
-          <Route path='/signin' exact element={<SignIn />} />
-          <Route path='/catgame' exact element={<CatGame />} />}
+          <Route path='/catgame' element={<CatGame />} />}
         </Routes>
 
       </Router>

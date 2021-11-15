@@ -20,13 +20,12 @@ const Nav = (props) => {
         <Link to='/signin'>
           <li>Sign In</li>
         </Link>
-<<<<<<< HEAD
         <Link to='/game'>
           <li>Game</li>
-=======
+
         <Link to='/catgame'>
           <li>Meow-Meow-Meow</li>
->>>>>>> 980a52971f0686ebbcdc70346014dcb77349a189
+
         </Link>
         <Link to={'/'}
           onClick={pageRefresh}>

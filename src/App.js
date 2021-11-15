@@ -28,27 +28,26 @@ class App extends Component {
   componentDidMount() {
     let token = localStorage.getItem('token');
     if (token) {
-      fetch('http://localhost:3000/profile', {
-        method: "GET",
+      axios('http://localhost:3000/profile', {
         headers: {
           "Authorization": `Bearer ${token}`
         }
       })
-      .then(response => response.json())
-      .then(result => {
-        if(result.id){
-          this.setState({
-            currentUser: result
-          })
-        }
-      })
+      .then((response) => {
+        this.setState({ currentUser: response.data });
+      });
     }
   }
 
   signUp(user) {
-    axios.post(SERVER_URL, { user }).then((response) => {
-      console.log(response.data);
-      this.setState({ currentUser: response.data });
+    axios.post(SERVER_URL, {
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      user
+    }).then((response) => {
+      this.setState({ currentUser: user });
     });
   }
 
@@ -60,12 +59,16 @@ class App extends Component {
       },
       user
     })
+    // if successful
     .then((response) => {
       localStorage.setItem('token', response.data.token);
-      this.setState({ currentUser: response.data.user });
+      this.setState({ currentUser: user });
+      // TODO: Navigate to a different page on sign-in
     })
+    // else
     .catch((error) => {
       this.setState({ error: error.response.data.error });
+      // TODO: render some kind of error message to the user
     })
   }
 

@@ -456,7 +456,7 @@
     "@babel/helper-plugin-utils" "^7.12.13"
 
 "@babel/plugin-syntax-import-meta@^7.8.3":
-  "integrity" "sha512-Yqfm+XDx0+Prh3VSeEQCPU81yC+JWZ2pDPFSS4ZdpfZhp4MkFMaDC1UqseovEKwSUpnIL7+vK+Clp7bfh0iD7g=="
+  "integrity" "sha512-Yqfm+XDx0+Prh3VSeEQCPU81yC+JWZ2pDPFSS4ZdpfZhp4MkFMaDC1UqseovEKwSUpnull7+vK+Clp7bfh0iD7g=="
   "resolved" "https://registry.npmjs.org/@babel/plugin-syntax-import-meta/-/plugin-syntax-import-meta-7.10.4.tgz"
   "version" "7.10.4"
   dependencies:
@@ -8929,7 +8929,7 @@
   "version" "1.0.1"
 
 "promise@^8.1.0":
-  "integrity" "sha512-W04AqnILOL/sPRXziNicCjSNRruLAuIHEOVBazepu0545DDNGYHz7ar9ZgZ1fMU8/MA4mVxp5rkBWRi6OXIy3Q=="
+  "integrity" "sha512-W04AqnullOL/sPRXziNicCjSNRruLAuIHEOVBazepu0545DDNGYHz7ar9ZgZ1fMU8/MA4mVxp5rkBWRi6OXIy3Q=="
   "resolved" "https://registry.npmjs.org/promise/-/promise-8.1.0.tgz"
   "version" "8.1.0"
   dependencies:

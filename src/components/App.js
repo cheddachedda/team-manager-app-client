@@ -9,6 +9,7 @@ import Nav from './Nav';
 import SignUp from './SignUp';
 import Users from './User';
 import SignIn from './SignIn';
+import CatGame from './CatGame';
 
 
 
@@ -103,6 +104,7 @@ class App extends Component {
 
             </>)
           }
+        <CatGame />
         </div>
       </Router>
     );

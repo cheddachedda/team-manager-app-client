@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const SERVER_URL = "http://localhost:3000/teams.json"
 
@@ -25,7 +26,7 @@ class Ladder extends Component {
       const {name, id, wins, losses, games_played} = team
       return (
         <tr key={id}>
-          <td>{name}</td>
+          <td><Link to={`/teams/${id}`}>{name}</Link></td>
           <td>{games_played}</td>
           <td>{wins}</td>
           <td>{losses}</td>

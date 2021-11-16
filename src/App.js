@@ -9,6 +9,7 @@ import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
 import Users from './pages/User';
 import Ladder from './pages/Ladder';
+import Teams from './pages/Teams';
 import CatGame from './pages/CatGame.js';
 import Game from './components/Game.js'
 import Games from './pages/Games.js'
@@ -88,6 +89,7 @@ class App extends Component {
           <Route path='/signin' exact element={<SignIn signIn={this.signIn}/>} />
           <Route path='/signup' exact element={<SignUp signUp={this.signUp}/>} />
           <Route path='/ladder' exact element={<Ladder />} />
+          <Route path='/teams/:id' exact element={<Teams />} />
           <Route path='/game' exact element={<Game />} />
           <Route path='/games' exact element={<Games />} />
           <Route path='/catgame' exact element={<CatGame />} />}

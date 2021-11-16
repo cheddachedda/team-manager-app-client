@@ -57,7 +57,7 @@ function CatGame() {
 
   return(
     <div className='Board'>
-      <h1>Meow-Meow-Meow</h1>
+      <h2>Meow-Meow-Meow</h2>
       <button onClick={shuffleCards}>New Game</button>
 
       <div className='card-grid'>

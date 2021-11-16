@@ -56,8 +56,8 @@ export default class Game extends Component {
     return (
       <div className="main-content">
         <div>
-          <h1> Create Game</h1>
-          <h2> Games Page </h2>
+          <h2> Create Game</h2>
+          <h3> Games Page </h3>
         </div>
         <div>
           <GameForm onSubmit={this.saveGame}/>

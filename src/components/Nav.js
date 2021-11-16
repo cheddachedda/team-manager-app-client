@@ -9,8 +9,12 @@ function pageRefresh() {
 
 const Nav = (props) => {
   return (
-    <nav>
-      <ul className='nav-links'>
+    <div className="Header">
+      <Link to='/'>
+      <h1>Team Manager</h1>
+      </Link>
+      <nav>
+        <ul className='nav-links'>
         <Link to='/'>
           <li>Home</li>
         </Link>
@@ -20,21 +24,25 @@ const Nav = (props) => {
         <Link to='/signin'>
           <li>Sign In</li>
         </Link>
-
-        <Link to='/game'>
-          <li>Game</li>
+        <Link to='/signup'>
+          <li>Sign Up</li>
         </Link>
-
+        <Link to='/ladder'>
+          <li>Ladder</li>
+        </Link>
+        <Link to='/games'>
+          <li>Games</li>
+        </Link>
         <Link to='/catgame'>
           <li>Meow-Meow-Meow</li>
-
         </Link>
         <Link to={'/'}
           onClick={pageRefresh}>
           <li>Logout</li>
         </Link>
-      </ul>
-    </nav>
+        </ul>
+      </nav>
+    </div>
   );
 }
 

@@ -5,9 +5,9 @@ class Users extends Component {
     const user = this.props.currentUser;
     if (user.id > 0) {
       return (
-        <div>
-          <h1>Player Profile</h1>
-          <h2>{ user.name }</h2>
+        <div className="user">
+          <h2>Player Profile</h2>
+          <h3>{ user.name }</h3>
           <p>Email: { user.email }</p>
           <p>Fines: { user.fines }</p>
           <p>Balance: { user.balance }</p>
@@ -16,7 +16,7 @@ class Users extends Component {
     } else {
       return (
         <div>
-          <h1> Please Sign In to continue </h1>
+          <h2> Please Sign In to continue </h2>
         </div>
       )
     };

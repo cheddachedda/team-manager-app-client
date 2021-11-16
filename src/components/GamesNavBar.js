@@ -10,10 +10,20 @@ const GamesNavBar = (props) => {
     }
 
     return (
-      <button className={ className } onClick={ props.setSelected }>
+      <button
+        key={ round }
+        className={ className }
+        name={ round }
+        onClick={ selectRound }
+      >
         { round }
       </button>
     );
+  }
+
+  const selectRound = (event) => {
+    event.preventDefault();
+    props.selectRound(event.target.name);
   }
 
   // TODO: Get an array of rounds from the backend.

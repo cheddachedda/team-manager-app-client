@@ -15,12 +15,8 @@ class Games extends Component {
     this._setSelectedRound = this._setSelectedRound.bind(this);
   }
 
-  // TODO:
-  // - Write click listener for GamesNavBar buttons
-  // - pass to GamesNavBar
-  // - which setsState of selectedRound
-  _setSelectedRound() {
-    
+  _setSelectedRound(round) {
+    this.setState({ selectedRound: round });
   }
 
   componentDidMount() {
@@ -28,9 +24,9 @@ class Games extends Component {
     // - Fetch games that match this.state.selectedRound,
     // - Replace placeholder array
     const response = [
-      { round: '1', home: 'Home', away: 'Away', venue: 'Venue' },
-      { round: '1', home: 'Home', away: 'Away', venue: 'Venue' },
-      { round: '1', home: 'Home', away: 'Away', venue: 'Venue' },
+      { id: 1, round: '1', home: 'Home', away: 'Away', venue: 'Venue' },
+      { id: 2, round: '1', home: 'Home', away: 'Away', venue: 'Venue' },
+      { id: 3, round: '1', home: 'Home', away: 'Away', venue: 'Venue' },
     ];
     this.setState({ games: response });
   }
@@ -39,8 +35,12 @@ class Games extends Component {
     return(
       <div>
         <h2>Games Page</h2>
-        <GamesNavBar current={ this.state.currentRound } selected={ this.state.selectedRound } />
-        { this.state.games.map((game) => <GameCard game={ game } />) }
+        <GamesNavBar
+          current={ this.state.currentRound }
+          selected={ this.state.selectedRound }
+          selectRound={ this._setSelectedRound }
+        />
+        { this.state.games.map( (game) => <GameCard key={ game.id } game={ game } /> ) }
       </div>
     );
   }

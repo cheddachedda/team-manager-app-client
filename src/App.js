@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { BrowserRouter as Router, Routes, Route }  from 'react-router-dom';
 import axios from 'axios';
 
-import '../css/App.css'
+import './css/App.css'
 import Nav from './components/Nav';
 import Home from './pages/Home';
 import SignUp from './pages/SignUp';
@@ -85,8 +85,11 @@ class App extends Component {
           <Route path='/user' element={<Users currentUser={ this.state.currentUser }/>} />
           <Route path='/signup' element={<SignUp />} />
           <Route path='/signin' element={<SignIn signIn={ this.signIn } />} />
-          <Route path='/game' exact element={<Game />} />
+          <Route path='/game' exact element={<Game />} />}
           <Route path='/catgame' element={<CatGame />} />}
+        
+
+
         </Routes>
 
       </Router>

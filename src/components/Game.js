@@ -26,21 +26,21 @@ export default class Game extends Component {
   }
 
   // send object back to rails
-  saveGame(venue, time, homescore, awayscore, home_id, away_id, status, round, division, homevotes, awayvotes, homebalance, awaybalance, homedrinks_id, awaydrinks_id, homeavailible_id, awayavailible_id){
+  saveGame(venue, time, home_score, away_score, home_id, away_id, status, round, division, home_votes, away_votes, home_balance, away_balance, homedrinks_id, awaydrinks_id, homeavailible_id, awayavailible_id){
     const game = {
       venue: venue,
       time: time,
-      homescore: homescore,
-      awayscore: awayscore,
+      home_score: home_score,
+      away_score: away_score,
       home_id: home_id,
       away_id: away_id,
       status: status,
       round: round,
       division: division,
-      homevotes: homevotes,
-      awayvotes: awayvotes,
-      homebalance: homebalance,
-      awaybalance: awaybalance,
+      home_votes: home_votes,
+      away_votes: away_votes,
+      home_balance: home_balance,
+      away_balance: away_balance,
       homedrinks_id: homedrinks_id,
       awaydrinks_id: awaydrinks_id,
       homeavailible_id: homeavailible_id,
@@ -76,19 +76,19 @@ class GameForm extends Component {
     this.state = {
       venue: "",
       time: "",
-      homescore: "",
-      awayscore: "",
+      home_score: "",
+      away_score: "",
       home_id: "",
       away_id: "",
       status: "",
       round: "",
       division: "",
-      homevotes: "",
-      awayvotes: "",
-      homebalance: "",
-      awaybalance: "",
-      homedrinks_id: "",
-      awaydrinks_id: "",
+      home_votes: "",
+      away_votes: "",
+      home_balance: "",
+      away_balance: "",
+      home_drinks_id: "",
+      away_drinks_id: "",
       homeavailible_id: "",
       awayavailible_id: "",
       };
@@ -105,8 +105,8 @@ class GameForm extends Component {
 
   _handleSubmit(event){
         event.preventDefault();
-        this.props.onSubmit(this.state.venue, this.state.time, this.state.homescore, this.state.awayscore, this.state.home_id, this.state.away_id, this.state.status, this.state.round, this.state.division, this.state.homebalance, this.state.awaybalance, this.state.homedrinks_id, this.state.awaydrinks_id, this.state.homeavailible_id, this.state.awayavailible_id );
-        this.setState( { venue: '', time: '', homescore: '', awayscore: '', home_id: '', away_id: '', status: '', round: '', division: '', homevotes: '', awayvotes: '', homebalance: '', awaybalance: '', homedrinks_id: '', awaydrinks_id: '', homeavailible_id: '', awayavailible_id: '' });
+        this.props.onSubmit(this.state.venue, this.state.time, this.state.home_score, this.state.away_score, this.state.home_id, this.state.away_id, this.state.status, this.state.round, this.state.division, this.state.home_balance, this.state.away_balance, this.state.homedrinks_id, this.state.awaydrinks_id, this.state.homeavailible_id, this.state.awayavailible_id );
+        this.setState( { venue: '', time: '', home_score: '', away_score: '', home_id: '', away_id: '', status: '', round: '', division: '', home_votes: '', away_votes: '', home_balance: '', away_balance: '', homedrinks_id: '', awaydrinks_id: '', homeavailible_id: '', awayavailible_id: '' });
       }
 
 
@@ -123,10 +123,10 @@ class GameForm extends Component {
           <input type="datetime" name="time" placeholder="15:00" onChange={ this._handleChange } value={this.state.time}/>
 
           <h3>Home Score</h3>
-          <input type="integer" name="homescore" placeholder="0" onChange={ this._handleChange } value={this.state.homescore}/>
+          <input type="integer" name="homescore" placeholder="0" onChange={ this._handleChange } value={this.state.home_score}/>
 
           <h3>Away Score</h3>
-          <input type="integer" name="awayscore" placeholder="0" onChange={ this._handleChange } value={this.state.awayscore}/>
+          <input type="integer" name="awayscore" placeholder="0" onChange={ this._handleChange } value={this.state.away_score}/>
 
           <h3>Home Id</h3>
           <input type="integer" name="home_id" placeholder="0" onChange={ this._handleChange } value={this.state.home_id}/>
@@ -144,19 +144,19 @@ class GameForm extends Component {
           <input type="integer" name="division" placeholder="1" onChange={ this._handleChange } value={this.state.division}/>
 
           <h3>Away Votes</h3>
-          <input type="integer" name="awayvotes" placeholder="1" onChange={ this._handleChange } value={this.state.awayvotes}/>
+          <input type="integer" name="awayvotes" placeholder="1" onChange={ this._handleChange } value={this.state.away_votes}/>
 
           <h3>Home Votes</h3>
-          <input type="integer" name="homevotes" placeholder="1" onChange={ this._handleChange } value={this.state.homevotes}/>
+          <input type="integer" name="homevotes" placeholder="1" onChange={ this._handleChange } value={this.state.home_votes}/>
 
           <h3>Home Balance</h3>
-          <input type="integer" name="homebalance" placeholder="1" onChange={ this._handleChange } value={this.state.homebalance}/>
+          <input type="integer" name="homebalance" placeholder="1" onChange={ this._handleChange } value={this.state.home_balance}/>
 
           <h3>Away Balance</h3>
-          <input type="integer" name="awaybalance" placeholder="1" onChange={ this._handleChange } value={this.state.awaybalance}/>
+          <input type="integer" name="awaybalance" placeholder="1" onChange={ this._handleChange } value={this.state.away_balance}/>
 
           <h3>Home Drinks</h3>
-          <input type="integer" name="homedrinks_id" placeholder="1" onChange={ this._handleChange } value={this.state.homedrinks_id}/>
+          <input type="integer" name="homedrinks_id" placeholder="1" onChange={ this._handleChange } value={this.state.home_drinks_id}/>
 
           <h3>Away Drinks</h3>
           <input type="integer" name="awaydrinks_id" placeholder="1" onChange={ this._handleChange } value={this.state.awaydrinks_id}/>
@@ -209,19 +209,19 @@ class GameForm extends Component {
                   <tr key={g.id}>
                     <td>{g.venue}</td>
                     <td>{g.time}</td>
-                    <td>{g.homescore}</td>
-                    <td>{g.awayscore}</td>
+                    <td>{g.home_score}</td>
+                    <td>{g.away_score}</td>
                     <td>{g.home_id}</td>
                     <td>{g.away_id}</td>
                     <td>{g.status}</td>
                     <td>{g.round}</td>
                     <td>{g.division}</td>
-                    <td>{g.homevotes}</td>
-                    <td>{g.awayvotes}</td>
-                    <td>{g.homebalance}</td>
-                    <td>{g.awaybalance}</td>
-                    <td>{g.homedrinks_id}</td>
-                    <td>{g.awaydrinks_id}</td>
+                    <td>{g.home_votes}</td>
+                    <td>{g.away_votes}</td>
+                    <td>{g.home_balance}</td>
+                    <td>{g.away_balance}</td>
+                    <td>{g.home_drinks_id}</td>
+                    <td>{g.away_drinks_id}</td>
                     <td>{g.homeavailible_id}</td>
                     <td>{g.awayavailible_id}</td>
                   </tr>))}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import SingleCard from '../components/SingleCard';
-import '../App.css'
+import '../css/App.css'
 
 const cardsArray = [
   { src: '/images/cool-cat.gif', matched: false},

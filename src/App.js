@@ -10,7 +10,6 @@ import SignIn from './pages/SignIn';
 import Users from './pages/User';
 import CatGame from './pages/CatGame.js';
 import Game from './components/Game.js'
-import Fixture from './components/Fixture.js'
 
 const SERVER_URL = 'http://localhost:3000/users';
 

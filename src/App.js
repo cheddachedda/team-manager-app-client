@@ -88,7 +88,6 @@ class App extends Component {
           <Route path='/signin' element={<SignIn signIn={ this.signIn } />} />
           <Route path='/game' exact element={<Game />} />
           <Route path='/catgame' element={<CatGame />} />
-          <Route path='/fixtures' element={<Fixture />} />
         </Routes>
 
       </Router>

@@ -77,14 +77,26 @@ class App extends Component {
 // TODO: add if conditionals to render login option before signup
 
   render() {
+    // Put all routes here.
+    // Set nav to true to render in the Nav
+    const routes = [
+      { path: '/', label: 'Home', nav: true },
+      { path: '/user', label: 'User', nav: true },
+      { path: '/signin', label: 'Sign In', nav: true },
+      { path: '/signup', label: 'Sign Up', nav: true },
+      { path: '/ladder', label: 'Ladder', nav: true },
+      { path: '/games', label: 'Games', nav: true },
+      { path: '/catgame', label: 'Meow-Meow-Meow', nav: true },
+    ];
+
     return (
       <Router>
 
-        <Nav currentUser={ this.state.currentUser } />
+        <Nav currentUser={ this.state.currentUser } links={ routes } />
 
         <Routes>
           <Route path='/' exact element={<Home />} />
-          <Route path='/user' exact element={<Users currentUser={this.state.user}/>} />
+          <Route path='/user' exact element={<Users currentUser={this.state.currentUser}/>} />
           <Route path='/signin' exact element={<SignIn signIn={this.signIn}/>} />
           <Route path='/signup' exact element={<SignUp signUp={this.signUp}/>} />
           <Route path='/ladder' exact element={<Ladder />} />

@@ -11,12 +11,17 @@ class Games extends Component {
       selectedRound: '1', // TODO: These may need to be integers; check backend.
       games: []
     };
+
+    this._setSelectedRound = this._setSelectedRound.bind(this);
   }
 
   // TODO:
   // - Write click listener for GamesNavBar buttons
   // - pass to GamesNavBar
   // - which setsState of selectedRound
+  _setSelectedRound() {
+    
+  }
 
   componentDidMount() {
     // TODO:

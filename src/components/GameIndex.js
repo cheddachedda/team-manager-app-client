@@ -3,9 +3,11 @@ import axios from "axios";
 import '../css/Game.css'
 import GameForm from './GameForm.js'
 import GamesNavBar from '../components/GamesNavBar';
+import CreateGame from '../pages/CreateGame.js'
+
 const SERVER_URL = "http://localhost:3000/games.json";
 
-class Game extends Component {
+class GameIndex extends Component {
   constructor() {
     super();
     this.state = {
@@ -27,7 +29,7 @@ class Game extends Component {
   }
 
   // send object back to rails
-  saveGame(venue, time, home_score, away_score, home_id, away_id, status, round, division, home_votes, away_votes, home_balance, away_balance, homedrinks_id, awaydrinks_id, homeavailible_id, awayavailible_id){
+  saveGame(venue, time, home_score, away_score, home_id, away_id, status, round, division, home_votes, away_votes, home_balance, away_balance, home_drinks_id, away_drinks_id, home_availible_id, away_availible_id){
     const game = {
       venue: venue,
       time: time,
@@ -42,11 +44,11 @@ class Game extends Component {
       away_votes: away_votes,
       home_balance: home_balance,
       away_balance: away_balance,
-      homedrinks_id: homedrinks_id,
-      awaydrinks_id: awaydrinks_id,
-      homeavailible_id: homeavailible_id,
-      awayavailible_id: awayavailible_id
-    };
+      home_drinks_id: home_drinks_id,
+      away_drinks_id: away_drinks_id,
+      home_availible_id: home_availible_id,
+      away_availible_id: away_availible_id
+  };
 
     axios.post(SERVER_URL, {game}).then((result) => {
       this.setState({ game: [...this.state.game, game] });
@@ -71,7 +73,7 @@ class Game extends Component {
     );
   }
 }
-export default Game;
+export default GameIndex;
 
     const GamesList = (props) => {
 
@@ -118,8 +120,8 @@ export default Game;
                     <td>{g.away_balance}</td>
                     <td>{g.home_drinks_id}</td>
                     <td>{g.away_drinks_id}</td>
-                    <td>{g.homeavailible_id}</td>
-                    <td>{g.awayavailible_id}</td>
+                    <td>{g.home_availible_id}</td>
+                    <td>{g.away_availible_id}</td>
                   </tr>))}
               </tbody>
 

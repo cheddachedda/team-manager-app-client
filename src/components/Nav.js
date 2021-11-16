@@ -29,6 +29,7 @@ const Nav = (props) => {
       { props.currentUser.id && <Link to='/user'>User</Link>}
       <Link to='/ladder'>Ladder</Link>
       <Link to='/games'>Games</Link>
+      { props.currentUser.admin && <Link to='/admin'>Admin</Link>}
       { renderAuthenticationLink() }
     </nav>
   );

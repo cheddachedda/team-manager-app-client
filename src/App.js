@@ -10,14 +10,13 @@ import SignIn from './pages/SignIn';
 import Users from './pages/User';
 import Ladder from './pages/Ladder';
 import Teams from './pages/Teams';
-import CatGame from './pages/CatGame.js';
-
+import CatGame from './pages/CatGame';
+import Game from './components/Game'
+import Games from './pages/Games'
+import Admin from './pages/Admin'
 import CreateGame from './pages/CreateGame.js';
 import GameIndex from './components/GameIndex.js'
 import GameForm from './components/GameForm.js'
-
-
-import Games from './pages/Games.js'
 
 const SERVER_URL = 'http://localhost:3000/users';
 
@@ -70,7 +69,7 @@ class App extends Component {
     // if successful
     .then((response) => {
       localStorage.setItem('token', response.data.token);
-      this.setState({ currentUser: user });
+      this.setState({ currentUser: response.user });
       // TODO: Navigate to a different page on sign-in
     })
     // else
@@ -101,6 +100,7 @@ class App extends Component {
 
           <Route path='/games' exact element={<Games />} />
           <Route path='/catgame' exact element={<CatGame />} />}
+          <Route path='/admin' exact element={<Admin />} />}
         </Routes>
 
       </Router>

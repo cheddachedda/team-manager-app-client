@@ -20,6 +20,12 @@ const Nav = (props) => {
         <Link to='/signin'>
           <li>Sign In</li>
         </Link>
+        <Link to='/signup'>
+          <li>Sign Up</li>
+        </Link>
+        <Link to='/ladder'>
+          <li>Ladder</li>
+        </Link>
         <Link to='/catgame'>
           <li>Meow-Meow-Meow</li>
         </Link>

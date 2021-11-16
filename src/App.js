@@ -11,14 +11,12 @@ import Users from './pages/User';
 import Ladder from './pages/Ladder';
 import Teams from './pages/Teams';
 import CatGame from './pages/CatGame.js';
-<<<<<<< HEAD
+
 import CreateGame from './pages/CreateGame.js';
 import GameIndex from './components/GameIndex.js'
 import GameForm from './components/GameForm.js'
 
-=======
-import Game from './components/Game.js'
->>>>>>> ed0a9ea03ca304c6a9d2f364063853b993e59fd3
+
 import Games from './pages/Games.js'
 
 const SERVER_URL = 'http://localhost:3000/users';
@@ -37,15 +35,15 @@ class App extends Component {
 
   componentDidMount() {
     let token = localStorage.getItem('token');
-    if (token) {
-      axios('http://localhost:3000/profile', {
-        headers: {
-          "Authorization": `Bearer ${token}`
-        }
-      })
-      .then((response) => {
-        this.setState({ currentUser: response.data });
-      });
+      if ('token') {
+        axios('http://localhost:3000/profile', {
+          headers: {
+            "Authorization": `Bearer ${'token'}`
+          }
+        })
+        .then((response) => {
+          this.setState({ currentUser: response.data });
+        });
     }
   }
 
@@ -100,7 +98,7 @@ class App extends Component {
           <Route path='/gameform' exact element={<GameForm  />} />
           <Route path='/creategame' exact element={<CreateGame  currentUser={this.state.currentUser}/>} />
           <Route path='/teams/:id' exact element={<Teams />} />
-          <Route path='/game' exact element={<Game />} />
+
           <Route path='/games' exact element={<Games />} />
           <Route path='/catgame' exact element={<CatGame />} />}
         </Routes>

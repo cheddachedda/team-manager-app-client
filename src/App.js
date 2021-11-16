@@ -9,11 +9,16 @@ import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
 import Users from './pages/User';
 import Ladder from './pages/Ladder';
+import Teams from './pages/Teams';
 import CatGame from './pages/CatGame.js';
+<<<<<<< HEAD
 import CreateGame from './pages/CreateGame.js';
 import GameIndex from './components/GameIndex.js'
 import GameForm from './components/GameForm.js'
 
+=======
+import Game from './components/Game.js'
+>>>>>>> ed0a9ea03ca304c6a9d2f364063853b993e59fd3
 import Games from './pages/Games.js'
 
 const SERVER_URL = 'http://localhost:3000/users';
@@ -80,22 +85,10 @@ class App extends Component {
 // TODO: add if conditionals to render login option before signup
 
   render() {
-    // Put all routes here.
-    // Set nav to true to render in the Nav
-    const routes = [
-      { path: '/', label: 'Home', nav: true },
-      { path: '/user', label: 'User', nav: true },
-      { path: '/signin', label: 'Sign In', nav: true },
-      { path: '/signup', label: 'Sign Up', nav: true },
-      { path: '/ladder', label: 'Ladder', nav: true },
-      { path: '/games', label: 'Games', nav: true },
-      { path: '/catgame', label: 'Meow-Meow-Meow', nav: true },
-    ];
-
     return (
       <Router>
 
-        <Nav currentUser={ this.state.currentUser } links={ routes } />
+        <Nav currentUser={ this.state.currentUser } />
 
         <Routes>
           <Route path='/' exact element={<Home />} />
@@ -106,8 +99,8 @@ class App extends Component {
           <Route path='/gameindex' exact element={<GameIndex />} />
           <Route path='/gameform' exact element={<GameForm  />} />
           <Route path='/creategame' exact element={<CreateGame  currentUser={this.state.currentUser}/>} />
-
-
+          <Route path='/teams/:id' exact element={<Teams />} />
+          <Route path='/game' exact element={<Game />} />
           <Route path='/games' exact element={<Games />} />
           <Route path='/catgame' exact element={<CatGame />} />}
         </Routes>

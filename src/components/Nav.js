@@ -26,7 +26,7 @@ const Nav = (props) => {
   return (
     <nav>
       <Link to='/'>Team Manager</Link>
-      <Link to='/user'>User</Link>
+      { props.currentUser.id && <Link to='/user'>User</Link>}
       <Link to='/ladder'>Ladder</Link>
       <Link to='/games'>Games</Link>
       { renderAuthenticationLink() }

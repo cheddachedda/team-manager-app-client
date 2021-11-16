@@ -6,7 +6,7 @@ const SERVER_URL = `http://localhost:3000/teams/`
 
 const Teams = () => {
   const {id} = useParams();
-  const [team, setTeam] = useState();
+  const [team, setTeam] = useState({});
 
   useEffect(() => {
     fetchTeam();
@@ -14,13 +14,13 @@ const Teams = () => {
 
   const fetchTeam = () => {
     axios.get(`${SERVER_URL}/${id}`).then((response) => {
-      const currentTeam = response.data;
+      setTeam(response.data);
     });
   }
 
   return (
     <div>
-      <h2>{currentTeam.name}</h2>
+      <h2>{team.name}</h2>
     </div>
   );
 }

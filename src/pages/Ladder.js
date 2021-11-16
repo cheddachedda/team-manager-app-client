@@ -25,7 +25,6 @@ class Ladder extends Component {
       const {name, id, wins, losses, games_played} = team
       return (
         <tr key={id}>
-          <td>{id}</td>
           <td>{name}</td>
           <td>{games_played}</td>
           <td>{wins}</td>
@@ -40,6 +39,10 @@ class Ladder extends Component {
       <div>
         <h2>Ladder</h2>
         <table>
+          <th>Team</th>
+          <th>Games</th>
+          <th>Wins</th>
+          <th>Losses</th>
           <tbody>
             {this.renderLadder()}
           </tbody>

@@ -3,29 +3,33 @@ import '../css/App.css';
 import { Link } from 'react-router-dom';
 
 const Nav = (props) => {
-  // Put new links in here:
-  const links = [
-    { path: '/', label: 'Home' },
-    { path: '/user', label: 'User' },
-    { path: '/signin', label: 'Sign In' },
-    { path: '/signup', label: 'Sign Up' },
-    { path: '/ladder', label: 'Ladder' },
-    { path: '/games', label: 'Games' },
-    { path: '/catgame', label: 'Meow-Meow-Meow' },
-  ];
+  // Renders either a login or logout link depending on whether a currentUser exists
+  const renderAuthenticationLink = () => {
+    if (props.currentUser.id) {
+      return (
+        <Link to={ '/' } onClick={ logOut }>
+          Log out
+        </Link>
+      );
+    } else {
+      return (
+        <Link to={ '/signin' }>Sign in</Link>
+      );
+    }
+  };
 
   const logOut = () => {
-    window.location.reload(false);
-    localStorage.clear();
+    window.location.reload(false); // Ignores window reload and redirects to Home
+    localStorage.clear(); // Clears the user token from local storage
   };
 
   return (
     <nav>
-      { links.map((link) => <Link to={ link.path }>{ link.label }</Link>) }
-
-      <Link to={ '/' } onClick={ logOut }>
-        Log out
-      </Link>
+      <Link to='/'>Team Manager</Link>
+      <Link to='/user'>User</Link>
+      <Link to='/ladder'>Ladder</Link>
+      <Link to='/games'>Games</Link>
+      { renderAuthenticationLink() }
     </nav>
   );
 }

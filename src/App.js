@@ -84,7 +84,7 @@ class App extends Component {
 
         <Routes>
           <Route path='/' exact element={<Home />} />
-          <Route path='/user' exact element={<Users currentUser={this.state.user}/>} />
+          <Route path='/user' exact element={<Users currentUser={this.state.currentUser}/>} />
           <Route path='/signin' exact element={<SignIn signIn={this.signIn}/>} />
           <Route path='/signup' exact element={<SignUp signUp={this.signUp}/>} />
           <Route path='/ladder' exact element={<Ladder />} />

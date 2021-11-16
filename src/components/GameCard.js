@@ -1,7 +1,8 @@
 const GameCard = (props) => {
+  const game = props.game;
   return (
     <div>
-      This is a game card for { props.game.home } v { props.game.away }
+      This is a game card for { game.home } v { game.away }, Round: { game.round }, Venue: { game.venue }
     </div>
   )
 };

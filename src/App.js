@@ -11,7 +11,7 @@ import Users from './pages/User';
 import Ladder from './pages/Ladder';
 import Teams from './pages/Teams';
 import CatGame from './pages/CatGame';
-import Game from './components/Game'
+
 import Games from './pages/Games'
 import Admin from './pages/Admin'
 import CreateGame from './pages/CreateGame.js';

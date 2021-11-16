@@ -34,7 +34,7 @@ const Nav = (props) => {
           <li>Game</li>
         </Link>
         <Link to='/catgame'>
-          <li>Meow-Meow-Meow</li>
+          <li>Meow</li>
         </Link>
         <Link to={'/'}
           onClick={pageRefresh}>

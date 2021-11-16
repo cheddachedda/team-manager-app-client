@@ -35,7 +35,7 @@ class Ladder extends Component {
   render() {
     return (
       <div>
-        <h1>Ladder</h1>
+        <h2>Ladder</h2>
         <table>
           <tbody>
             {this.renderLadder()}

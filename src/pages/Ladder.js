@@ -22,11 +22,14 @@ class Ladder extends Component {
 
   renderLadder() {
     return this.state.teams.map((team, index) => {
-      const {name, id} = team
+      const {name, id, wins, losses, games_played} = team
       return (
         <tr key={id}>
           <td>{id}</td>
           <td>{name}</td>
+          <td>{games_played}</td>
+          <td>{wins}</td>
+          <td>{losses}</td>
         </tr>
       )
     })

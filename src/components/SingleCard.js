@@ -1,4 +1,4 @@
-import '../css/App.css'
+import '../css/App.css';
 
 export default function SingleCard({ card , handleChoice, flipped }) {
 

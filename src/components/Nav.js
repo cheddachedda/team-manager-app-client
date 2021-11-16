@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/App.css'
+import '../css/App.css';
 import { Link } from 'react-router-dom';
 
 function pageRefresh() {
@@ -30,8 +30,8 @@ const Nav = (props) => {
         <Link to='/ladder'>
           <li>Ladder</li>
         </Link>
-        <Link to='/game'>
-          <li>Game</li>
+        <Link to='/games'>
+          <li>Games</li>
         </Link>
         <Link to='/catgame'>
           <li>Meow</li>

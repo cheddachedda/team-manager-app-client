@@ -1,13 +1,13 @@
 import React from 'react';
-import './App.css';
+import '../css/App.css'
 import { Link } from 'react-router-dom';
 
 function pageRefresh() {
   window.location.reload(false);
-  localStorage.clear()
-}
+  localStorage.clear();
+};
 
-function Nav() {
+const Nav = (props) => {
   return (
     <div className="Header">
       <Link to='/'>
@@ -15,16 +15,26 @@ function Nav() {
       </Link>
       <nav>
         <ul className='nav-links'>
-          <Link to='/user'>
-            <li>User</li>
-          </Link>
-          <Link to='/signin'>
-            <li>Sign In</li>
-          </Link>
-          <Link to={'/'}
-            onClick={pageRefresh}>
-            <li>Logout</li>
-          </Link>
+        <Link to='/'>
+          <li>Home</li>
+        </Link>
+        <Link to='/user'>
+          <li>User</li>
+        </Link>
+        <Link to='/signin'>
+          <li>Sign In</li>
+        </Link>
+        <Link to='/game'>
+          <li>Game</li>
+        </Link>
+
+        <Link to='/catgame'>
+          <li>Meow-Meow-Meow</li>
+        </Link>
+        <Link to={'/'}
+          onClick={pageRefresh}>
+          <li>Logout</li>
+        </Link>
         </ul>
       </nav>
     </div>

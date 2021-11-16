@@ -1,13 +1,14 @@
 import { Component } from 'react';
 
 import GamesNavBar from '../components/GamesNavBar';
+import GamesList from '../components/GamesList';
 
 class Games extends Component {
   constructor() {
     super();
     this.state = {
       currentRound: '1', // TODO: These may need to be integers; check backend.
-      selectedRound: '1' // TODO: These may need to be integers; check backend.
+      selectedRound: '1', // TODO: These may need to be integers; check backend.
     };
   }
 
@@ -16,7 +17,7 @@ class Games extends Component {
       <div>
         <h2>Games Page</h2>
         <GamesNavBar current={ this.state.currentRound } selected={ this.state.selectedRound } />
-        <p>A list of games will go here </p>
+        <GamesList round={ this.state.selectedRound } />
       </div>
     );
   }

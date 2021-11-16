@@ -40,7 +40,7 @@ class Games extends Component {
           selected={ this.state.selectedRound }
           selectRound={ this._setSelectedRound }
         />
-        { this.state.games.map( (game) => <GameCard key={ game.id } game={ game } /> ) }
+        { this.state.games.map((game) => <GameCard key={ game.id } game={ game } /> ) }
       </div>
     );
   }

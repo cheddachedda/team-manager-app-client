@@ -20,6 +20,15 @@ class SignIn extends Component {
     this.props.signIn(this.state);
   }
 
+  // Temporary, just for development
+  ___loginAsAdmin = (event) => {
+    event.preventDefault();
+    this.props.signIn({
+      email: 'admin@ga.co',
+      password: 'chicken'
+    });
+  }
+
   render() {
     return (
       <div>
@@ -47,7 +56,10 @@ class SignIn extends Component {
           </label>
 
           <input type="submit" value="Sign in" />
+
         </form>
+
+        <button onClick={ this.___loginAsAdmin }>Easy login as Admin</button>
       </div>
     );
   }

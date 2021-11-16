@@ -44,7 +44,6 @@ class SignUp extends Component {
           name={ label }
           // required
           type={label === 'captain' ? 'checkbox' : label || label === 'team_id' ? 'integer' : label || label === 'name' ? 'text' : label }
-
           // value={ this.state[label] }
         />
 
@@ -60,10 +59,8 @@ class SignUp extends Component {
       <div>
 
         <form onSubmit={ this._handleSubmit } >
-          <h1>Sign up</h1>
+          <h2>Sign up</h2>
             { fields.map(this.inputField) }
-
-
           <input type="submit" />
         </form>
       </div>

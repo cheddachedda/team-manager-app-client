@@ -1,8 +1,8 @@
 import { Component } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link}  from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route }  from 'react-router-dom';
 import axios from 'axios';
 
-import './App.css'
+import './css/App.css'
 import Nav from './components/Nav';
 import Home from './pages/Home';
 import SignUp from './pages/SignUp';
@@ -10,6 +10,7 @@ import SignIn from './pages/SignIn';
 import Users from './pages/User';
 import Ladder from './pages/Ladder';
 import CatGame from './pages/CatGame.js';
+import Game from './components/Game.js'
 
 const SERVER_URL = 'http://localhost:3000/users';
 
@@ -17,8 +18,9 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      user: {}
-    }
+      currentUser: {},
+      error: null
+    };
 
     this.signUp = this.signUp.bind(this);
     this.signIn = this.signIn.bind(this);
@@ -27,57 +29,47 @@ class App extends Component {
   componentDidMount() {
     let token = localStorage.getItem('token');
     if (token) {
-      fetch('http://localhost:3000/profile', {
-        method: "GET",
+      axios('http://localhost:3000/profile', {
         headers: {
           "Authorization": `Bearer ${token}`
         }
       })
-      .then(response => response.json())
-      .then(result => {
-        if(result.id){
-          this.setState({
-            user: result
-          })
-        }
-      })
+      .then((response) => {
+        this.setState({ currentUser: response.data });
+      });
     }
   }
 
   signUp(user) {
-    axios.post(SERVER_URL, { user }).then((response) => {
-      console.log(response.data);
-      this.setState({ user: response.data });
+    axios.post(SERVER_URL, {
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      user
+    }).then((response) => {
+      this.setState({ currentUser: user });
     });
   }
 
-  signIn = (user) => {
-    fetch("http://localhost:3000/signin", {
-        method: "POST",
-        headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            user: {
-                email: user.email,
-                password: user.password
-            }
-        })
+  signIn(user) {
+    axios.post("http://localhost:3000/signin", {
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      user
     })
-    .then(response => response.json())
-    .then(result => {
-        if (result.token){
-        localStorage.setItem('token', result.token)
-        this.setState({
-            user: result.user
-            })
-        }
-        else {
-            this.setState({
-                error: result.error
-            })
-        }
+    // if successful
+    .then((response) => {
+      localStorage.setItem('token', response.data.token);
+      this.setState({ currentUser: user });
+      // TODO: Navigate to a different page on sign-in
+    })
+    // else
+    .catch((error) => {
+      this.setState({ error: error.response.data.error });
+      // TODO: render some kind of error message to the user
     })
   }
 
@@ -87,7 +79,7 @@ class App extends Component {
     return (
       <Router>
 
-        <Nav />
+        <Nav currentUser={ this.state.currentUser } />
 
         <Routes>
           <Route path='/' exact element={<Home />} />
@@ -95,6 +87,7 @@ class App extends Component {
           <Route path='/signin' exact element={<SignIn signIn={this.signIn}/>} />
           <Route path='/signup' exact element={<SignUp signUp={this.signUp}/>} />
           <Route path='/ladder' exact element={<Ladder />} />
+          <Route path='/game' exact element={<Game />} />
           <Route path='/catgame' exact element={<CatGame />} />}
         </Routes>
 

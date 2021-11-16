@@ -1,9 +1,8 @@
-import './DatabaseTable.css';
+import '../css/DatabaseTable.css';
 
 const DatabaseTable = (props) => {
-
   const tableHeaders = Object.keys(props.data[0]);
-  console.log(tableHeaders);
+
   const renderRow = function (modelData) {
     return (
       <tr>

@@ -1,37 +1,36 @@
-body, .header{
-  margin: 0;
-}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
 
-h1{
-  background-color: forestgreen;
-  color: white;
+body {
+  background-color: #2B2933;
+  color: #FBFBFE;
+  font-family: 'Noto Sans', sans-serif;
   margin: 0;
-  padding: 1rem;
-  font-size: 2.5rem;
 }
 
 a {
+  color: #07DFFF;
   text-decoration: none;
 }
 
 nav {
+  background-color: #42414D;
   display: flex;
   justify-content: space-around;
-  align-items: center;
-  height: 2rem;
-  background: black;
 }
 
-.nav-links, .nav-links a {
-  width: 50%;
-  display: flex;
-  justify-content: space-around;
+nav a {
+  border-radius: 0.25rem;
+  padding: 1rem;
   list-style: none;
-  color: white;
 }
 
-.user, .home{
-  margin:1rem;
+nav a:hover {
+  background-color: #07DFFF;
+  color: #2B2933;
+}
+
+footer {
+  background-color: #1C1C22;
 }
 
 form {
@@ -48,88 +47,4 @@ form {
 
 form input{
   margin: 1rem;
-}
-
-.nav-links {
-  width: 50%;
-  display: flex;
-  justify-content: space-around;
-  list-style: none;
-}
-
-@keyframes cat-background {
-  0%   {background-color: pink;}
-  15%  {background-color: yellow;}
-  30%  {background-color: purple;}
-  45% {background-color: skyblue;}
-  60% {background-color: navy;}
-  75% {background-color: orange;}
-  90% {background-color: maroon;}
-  100% {background-color: pink;}
-}
-
-.board {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    justify-items: center;
-    align-items: stretch;
-    gap: 1rem;
-  }
-
-.card-grid {
-  animation-name: cat-background;
-  animation-duration: 10s;
-  animation-iteration-count: infinite;
-  max-width: 480px;
-  margin-top: 40px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 20px;
-}
-
-.card {
-  width: 100px;
-  height: 100px;
-  position: relative;
-}
-
-.card img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  border: 2px solid black;
-  border-radius: 6px;
-}
-
-.card button {
-  animation-name: cat-background;
-  animation-duration: 5s;
-  animation-iteration-count: infinite;
-  width: 100px;
-  height: 100px;
-  display: block;
-  border: 2px solid black;
-  border-radius: 6px;
-}
-
-.card .front {
-  transform: rotateY(90deg);
-  position: absolute;
-  transition-delay: 0.2s;
-}
-
-.flipped .front {
-  transform: rotateY(0deg);
-  transition-delay: 0.2s;
-}
-
-.card .back {
-  transition: all ease-in 0.2s;
-  transition-delay: 0.2s;
-}
-
-.flipped .back {
-  transform: rotateY(90deg);
-  transition-delay: 0s;
 }

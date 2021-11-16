@@ -13,6 +13,11 @@ class Games extends Component {
     };
   }
 
+  // TODO:
+  // - Write click listener for GamesNavBar buttons
+  // - pass to GamesNavBar
+  // - which setsState of selectedRound
+
   componentDidMount() {
     // TODO:
     // - Fetch games that match this.state.selectedRound,

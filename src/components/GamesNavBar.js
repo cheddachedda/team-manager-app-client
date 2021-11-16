@@ -1,7 +1,6 @@
 const GamesNavBar = (props) => {
   // Renders a single nav button
   const navButton = (round) => {
-
     // TODO: Create CSS classes for .selected and .current
     let className;
     if (props.selected === round) {
@@ -11,13 +10,24 @@ const GamesNavBar = (props) => {
     }
 
     return (
-      <button className={ className }>
+      <button
+        key={ round }
+        className={ className }
+        name={ round }
+        onClick={ selectRound }
+      >
         { round }
       </button>
     );
   }
 
-  // TODO: Get an array of rounds from the backend
+  const selectRound = (event) => {
+    event.preventDefault();
+    props.selectRound(event.target.name);
+  }
+
+  // TODO: Get an array of rounds from the backend.
+  // And get it from props from Games.js
   const rounds = [ '1', '2', '3', '4', '5', '6', 'SF', 'GF' ];
 
   return (

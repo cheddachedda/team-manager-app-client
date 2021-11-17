@@ -9,8 +9,11 @@ import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
 import Users from './pages/User';
 import Ladder from './pages/Ladder';
-import CatGame from './pages/CatGame.js';
-import Game from './components/Game.js'
+import Teams from './pages/Teams';
+import CatGame from './pages/CatGame';
+import Game from './components/Game'
+import Games from './pages/Games'
+import Admin from './pages/Admin'
 
 const SERVER_URL = 'http://localhost:3000/users';
 
@@ -63,7 +66,7 @@ class App extends Component {
     // if successful
     .then((response) => {
       localStorage.setItem('token', response.data.token);
-      this.setState({ currentUser: user });
+      this.setState({ currentUser: response.user });
       // TODO: Navigate to a different page on sign-in
     })
     // else
@@ -83,12 +86,16 @@ class App extends Component {
 
         <Routes>
           <Route path='/' exact element={<Home />} />
-          <Route path='/user' exact element={<Users currentUser={this.state.user}/>} />
+          <Route path='/user' exact element={<Users currentUser={this.state.currentUser}/>} />
           <Route path='/signin' exact element={<SignIn signIn={this.signIn}/>} />
           <Route path='/signup' exact element={<SignUp signUp={this.signUp}/>} />
           <Route path='/ladder' exact element={<Ladder />} />
+          <Route path='/teams/:id' exact element={<Teams />} />
           <Route path='/game' exact element={<Game />} />
+          <Route path='/games' exact element={<Games />} />
           <Route path='/catgame' exact element={<CatGame />} />
+          <Route path='/admin' exact element={<Admin />} />
+
         </Routes>
 
       </Router>

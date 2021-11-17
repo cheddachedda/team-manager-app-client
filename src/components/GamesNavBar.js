@@ -37,7 +37,7 @@ const GamesNavBar = (props) => {
 
   return (
     <div>
-      { rounds.map(navButton) }
+      {  rounds.map(navButton) }
     </div>
   );
 }

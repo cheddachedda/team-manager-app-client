@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import Drinks from '../components/Drinks';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import '../css/Slots.css'
 
 const SERVER_URL = `http://localhost:3000/teams/`
 
@@ -21,8 +23,18 @@ const Teams = () => {
   return (
     <div>
       <h2>{team.name}</h2>
+      <p>Games: {team.games_played}</p>
+      <p>Wins: {team.wins}</p>
+      <p>Losses: {team.losses}</p>
+      <h3>Players</h3>
+      <ul>
+        {team.users &&
+          team.users.map((u) => <li>{u}</li>)}
+      </ul>
+      <Drinks players={team.users} />
     </div>
   );
 }
+
 
 export default Teams;

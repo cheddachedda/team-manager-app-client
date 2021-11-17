@@ -21,10 +21,10 @@ class SignIn extends Component {
   }
 
   // Temporary, just for development
-  ___loginAsAdmin = (event) => {
+  ___easyLogIn = (event) => {
     event.preventDefault();
     this.props.signIn({
-      email: 'admin@ga.co',
+      email: `${ event.target.name }@ga.co`,
       password: 'chicken'
     });
   }
@@ -59,7 +59,10 @@ class SignIn extends Component {
 
         </form>
 
-        <button onClick={ this.___loginAsAdmin }>Easy login as Admin</button>
+        <button name="admin" onClick={ this.___easyLogIn }>Log in as Admin</button>
+        <button name="joel" onClick={ this.___easyLogIn }>Log in as Joel</button>
+        <button name="pat" onClick={ this.___easyLogIn }>Log in as Pat</button>
+        <button name="rowena" onClick={ this.___easyLogIn }>Log in as Rowena</button>
       </div>
     );
   }

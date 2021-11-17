@@ -69,13 +69,12 @@ class App extends Component {
     // if successful
     .then((response) => {
       localStorage.setItem('token', response.data.token);
-      this.setState({ currentUser: response.user });
-      // TODO: Navigate to a different page on sign-in
+      this.setState({ currentUser: response.data.user });
+      window.location.assign('/');
     })
     // else
     .catch((error) => {
       this.setState({ error: error.response.data.error });
-      // TODO: render some kind of error message to the user
     })
   }
 

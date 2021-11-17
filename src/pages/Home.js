@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import GameCard from '../components/GameCard';
 
 class Home extends Component {
   constructor() {
@@ -10,11 +11,20 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
-        <h2>Home Page</h2>
-        <p>This will eventually be like a User dashboard</p>
-        <p>Similar to User Profile, but maybe less detailed</p>
-        <p>With an overview of the user's balance, fines, next fixtures, etc.</p>
+      <div className="home-body">
+        <h2>Welcome [USER]</h2>
+        <div className="home-panel">
+          <h3>Balance</h3>
+          <p>100</p>
+        </div>
+        <div className="home-panel">
+          <h3>Fines</h3>
+          <p>100</p>
+        </div>
+        <div className="home-panel">
+          <h3>Upcoming Game</h3>
+          <GameCard key={ 1 } game={ "game" }/>
+        </div>
       </div>
     );
   }

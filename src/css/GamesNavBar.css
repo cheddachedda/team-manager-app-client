@@ -1,0 +1,27 @@
+button {
+  background-color: #42414D;
+  border: none;
+  border-radius: 0.2rem;
+  color: #FBFBFE;
+  cursor: pointer;
+  font-family: 'Noto Sans', sans-serif;
+  margin: 0 0.4rem;
+  padding: 1rem;
+}
+
+.current {
+  background-color: #42414D;
+  color: #FBFBFE;
+  border: 3px solid black;
+}
+
+.selected {
+  background-color: #07DFFF;
+  color: #1C1C22;
+}
+
+.current-selected{
+  background-color: #07DFFF;
+  border: 3px solid black;
+  color: #1C1C22;
+}

@@ -66,13 +66,12 @@ class App extends Component {
     // if successful
     .then((response) => {
       localStorage.setItem('token', response.data.token);
-      this.setState({ currentUser: response.user });
-      // TODO: Navigate to a different page on sign-in
+      this.setState({ currentUser: response.data.user });
+      window.location.assign('/');
     })
     // else
     .catch((error) => {
       this.setState({ error: error.response.data.error });
-      // TODO: render some kind of error message to the user
     })
   }
 
@@ -93,8 +92,9 @@ class App extends Component {
           <Route path='/teams/:id' exact element={<Teams />} />
           <Route path='/game' exact element={<Game />} />
           <Route path='/games' exact element={<Games />} />
-          <Route path='/catgame' exact element={<CatGame />} />}
-          <Route path='/admin' exact element={<Admin />} />}
+          <Route path='/catgame' exact element={<CatGame />} />
+          <Route path='/admin' exact element={<Admin />} />
+
         </Routes>
 
       </Router>

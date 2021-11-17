@@ -1,13 +1,18 @@
+import '../css/GamesNavBar.css'
+
 const GamesNavBar = (props) => {
   // Renders a single nav button
   const navButton = (round) => {
     // TODO: Create CSS classes for .selected and .current
     let className;
-    if (props.selected === round) {
+    if (props.selected === round && props.current === round) {
+      className = 'current-selected';
+    } else if (props.selected === round) {
       className = 'selected';
-    } else if (props.current === round) {
+    }else if (props.current === round) {
       className = 'current';
     }
+
 
     return (
       <button
@@ -32,7 +37,7 @@ const GamesNavBar = (props) => {
 
   return (
     <div>
-      { rounds.map(navButton) }
+      {  rounds.map(navButton) }
     </div>
   );
 }

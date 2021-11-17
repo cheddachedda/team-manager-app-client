@@ -1,3 +1,5 @@
+import '../css/GamesNavBar.css'
+
 const GamesNavBar = (props) => {
   // Renders a single nav button
   const navButton = (round) => {

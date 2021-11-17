@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { BrowserRouter as Router, Routes, Route }  from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Redirect }  from 'react-router-dom';
 import axios from 'axios';
 
 import './css/App.css'
@@ -15,7 +15,7 @@ import CatGame from './pages/CatGame';
 import Games from './pages/Games'
 import Admin from './pages/Admin'
 import CreateGame from './pages/CreateGame.js';
-import GameIndex from './components/GameIndex.js'
+import AdminGames from './components/AdminGames.js'
 import GameForm from './components/GameForm.js'
 
 const SERVER_URL = 'http://localhost:3000/users';
@@ -34,10 +34,10 @@ class App extends Component {
 
   componentDidMount() {
     let token = localStorage.getItem('token');
-      if ('token') {
+      if (token) {
         axios('http://localhost:3000/profile', {
           headers: {
-            "Authorization": `Bearer ${'token'}`
+            "Authorization": `Bearer ${token}`
           }
         })
         .then((response) => {
@@ -93,7 +93,7 @@ class App extends Component {
           <Route path='/signin' exact element={<SignIn signIn={this.signIn}/>} />
           <Route path='/signup' exact element={<SignUp signUp={this.signUp}/>} />
           <Route path='/ladder' exact element={<Ladder />} />
-          <Route path='/gameindex' exact element={<GameIndex />} />
+          <Route path='/admingames' exact element={<AdminGames />} />
           <Route path='/gameform' exact element={<GameForm  />} />
           <Route path='/creategame' exact element={<CreateGame  currentUser={this.state.currentUser}/>} />
           <Route path='/teams/:id' exact element={<Teams />} />

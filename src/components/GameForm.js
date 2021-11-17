@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import '../css/GameForm.css';
-import GameIndex from './GameIndex.js'
+import AdminGames from './AdminGames.js'
 
 
 class GameForm extends Component {
@@ -9,13 +9,12 @@ class GameForm extends Component {
     super();
     this.state = {
       venue: "",
-      time: "",
+      datetime: "",
       home_score: "",
       away_score: "",
       home_id: "",
       away_id: "",
-      status: "",
-      round: "",
+      round_no: "",
       division: "",
       home_votes: "",
       away_votes: "",
@@ -23,8 +22,8 @@ class GameForm extends Component {
       away_balance: "",
       home_drinks_id: "",
       away_drinks_id: "",
-      home_availible_id: "",
-      away_availible_id: "",
+      home_available_ids: [],
+      away_available_ids: [],
       };
 
     this._handleChange = this._handleChange.bind(this);
@@ -39,8 +38,8 @@ class GameForm extends Component {
 
   _handleSubmit(event){
         event.preventDefault();
-        this.props.onSubmit(this.state.venue, this.state.time, this.state.home_score, this.state.away_score, this.state.home_id, this.state.away_id, this.state.status, this.state.round, this.state.division, this.state.home_balance, this.state.away_balance, this.state.home_drinks_id, this.state.away_drinks_id, this.state.home_availible_id, this.state.away_availible_id );
-        this.setState( { venue: '', time: '', home_score: '', away_score: '', home_id: '', away_id: '', status: '', round: '', division: '', home_votes: '', away_votes: '', home_balance: '', away_balance: '', home_drinks_id: '', away_drinks_id: '', home_availible_id: '', away_availible_id: '' });
+        this.props.onSubmit(this.state);
+        this.setState( { venue: '', datetime: '', home_score: '', away_score: '', home_id: '', away_id: '', round_no: '', division: '', home_votes: '', away_votes: '', home_balance: '', away_balance: '', home_drinks_id: '', away_drinks_id: '', home_available_ids: [], away_available_ids: [] });
       }
 
 
@@ -56,7 +55,7 @@ class GameForm extends Component {
           <input type="text" name="venue" placeholder="Old Trafford" onChange={ this._handleChange } value={ this.state.venue }/>
 
           <h3>Time</h3>
-          <input type="datetime" name="time" placeholder="15:00" onChange={ this._handleChange } value={this.state.time}/>
+          <input type="datetime" name="datetime" placeholder="15:00" onChange={ this._handleChange } value={this.state.datetime}/>
 
           <h3>Home Score</h3>
           <input type="integer" name="home_score" placeholder="0" onChange={ this._handleChange } value={this.state.home_score}/>
@@ -73,11 +72,8 @@ class GameForm extends Component {
           </div>
           <div className="middle">
 
-          <h3>Status</h3>
-          <input type="text" name="status" placeholder="Status" onChange={ this._handleChange } value={this.state.status}/>
-
           <h3>Round</h3>
-          <input type="integer" name="round" placeholder="1" onChange={ this._handleChange } value={this.state.round}/>
+          <input type="integer" name="round_no" placeholder="1" onChange={ this._handleChange } value={this.state.round_no}/>
 
           <h3>Division</h3>
           <input type="integer" name="division" placeholder="1" onChange={ this._handleChange } value={this.state.division}/>
@@ -104,10 +100,10 @@ class GameForm extends Component {
           <input type="integer" name="away_drinks_id" placeholder="1" onChange={ this._handleChange } value={this.state.away_drinks_id}/>
 
           <h3>Home Availability</h3>
-          <input type="integer" name="home_availible_id" placeholder="1" onChange={ this._handleChange } value={this.state.home_availible_id}/>
+          <input type="integer" name="home_available_ids" placeholder="1" onChange={ this._handleChange } value={this.state.home_available_ids}/>
 
           <h3>Away Availability</h3>
-          <input type="integer" name="away_availible_id" placeholder="1" onChange={ this._handleChange } value={this.state.away_availible_id}/>
+          <input type="integer" name="away_available_ids" placeholder="1" onChange={ this._handleChange } value={this.state.away_available_ids}/>
           </div>
 
           <div className="submit">

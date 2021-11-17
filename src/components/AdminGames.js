@@ -7,7 +7,7 @@ import CreateGame from '../pages/CreateGame.js'
 
 const SERVER_URL = "http://localhost:3000/games.json";
 
-class GameIndex extends Component {
+class AdminGames extends Component {
   constructor() {
     super();
     this.state = {
@@ -29,7 +29,7 @@ class GameIndex extends Component {
   }
 
   // send object back to rails
-  saveGame(venue, time, home_score, away_score, home_id, away_id, status, round, division, home_votes, away_votes, home_balance, away_balance, home_drinks_id, away_drinks_id, home_availible_id, away_availible_id){
+  saveGame(venue, time, home_score, away_score, home_id, away_id, round, division, home_votes, away_votes, home_balance, away_balance, home_drinks_id, away_drinks_id, home_available_ids, away_available_ids){
     const game = {
       venue: venue,
       time: time,
@@ -37,7 +37,7 @@ class GameIndex extends Component {
       away_score: away_score,
       home_id: home_id,
       away_id: away_id,
-      status: status,
+
       round: round,
       division: division,
       home_votes: home_votes,
@@ -46,8 +46,8 @@ class GameIndex extends Component {
       away_balance: away_balance,
       home_drinks_id: home_drinks_id,
       away_drinks_id: away_drinks_id,
-      home_availible_id: home_availible_id,
-      away_availible_id: away_availible_id
+      home_available_ids: home_available_ids,
+      away_available_ids: away_available_ids
   };
 
     axios.post(SERVER_URL, {game}).then((result) => {
@@ -73,7 +73,7 @@ class GameIndex extends Component {
     );
   }
 }
-export default GameIndex;
+export default AdminGames;
 
     const GamesList = (props) => {
 
@@ -111,7 +111,7 @@ export default GameIndex;
                     <td>{g.away_score}</td>
                     <td>{g.home_id}</td>
                     <td>{g.away_id}</td>
-                    <td>{g.status}</td>
+
                     <td>{g.round}</td>
                     <td>{g.division}</td>
                     <td>{g.home_votes}</td>
@@ -120,8 +120,8 @@ export default GameIndex;
                     <td>{g.away_balance}</td>
                     <td>{g.home_drinks_id}</td>
                     <td>{g.away_drinks_id}</td>
-                    <td>{g.home_availible_id}</td>
-                    <td>{g.away_availible_id}</td>
+                    <td>{g.home_available_ids}</td>
+                    <td>{g.away_available_ids}</td>
                   </tr>))}
               </tbody>
 

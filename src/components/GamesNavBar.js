@@ -8,6 +8,9 @@ const GamesNavBar = (props) => {
     } else if (props.current === round) {
       className = 'current';
     }
+    // else if (props.current === round && props.selected === round) {
+    //   className = 'current-selected';
+    // }
 
     return (
       <button

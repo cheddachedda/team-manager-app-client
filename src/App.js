@@ -99,8 +99,9 @@ class App extends Component {
           <Route path='/teams/:id' exact element={<Teams />} />
 
           <Route path='/games' exact element={<Games />} />
-          <Route path='/catgame' exact element={<CatGame />} />}
-          <Route path='/admin' exact element={<Admin />} />}
+          <Route path='/catgame' exact element={<CatGame />} />
+          <Route path='/admin' exact element={<Admin />} />
+
         </Routes>
 
       </Router>

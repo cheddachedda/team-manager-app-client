@@ -87,7 +87,7 @@ class App extends Component {
         <Nav currentUser={ this.state.currentUser } />
 
         <Routes>
-          <Route path='/' exact element={<Home />} />
+          <Route path='/' exact element={<Home currentUser={this.state.currentUser}/>} />
           <Route path='/user' exact element={<Users currentUser={this.state.currentUser}/>} />
           <Route path='/signin' exact element={<SignIn signIn={this.signIn}/>} />
           <Route path='/signup' exact element={<SignUp signUp={this.signUp}/>} />

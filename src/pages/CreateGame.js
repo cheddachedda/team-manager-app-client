@@ -8,11 +8,12 @@ const SERVER_URL = "http://localhost:3000/games.json";
 
 
 class CreateGame extends Component {
-  
+
   saveGame(game){
     axios.post(SERVER_URL, {game}).then(() => {
     // TODO: redirect to admin games
-    <Navigate to="admingames" />
+    // <Navigate to="admingames" />
+    window.location.assign('/admingames');
     });
 
   }
@@ -23,7 +24,7 @@ render() {
   if (this.props.currentUser.admin){
     return (
     <div className="body">
-      <Link to={ '/AdminGames.js' }>Games List</Link>
+      <Link to={ '/AdminGames' }>Games List</Link>
       <GameForm onSubmit={this.saveGame} />
 
     </div>)

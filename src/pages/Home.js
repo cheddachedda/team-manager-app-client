@@ -6,39 +6,45 @@ class Home extends Component {
   constructor() {
     super();
     this.state = {
-
     };
   }
 
   render() {
-    const user = this.props.currentUser;
-
-    if (user.email === "meow@meow") {
+    if (this.props.currentUser.email === "meow@meow") {
       return (
-      <Link to={ '/CatGame' }><h1>Easter Egg</h1></Link>
-    )
-  } else {
-
-    return (
-      <div className="body">
-        <h2>Welcome {user}</h2>
-        <div className="balance-fines">
-          <div>
-            <h3>Balance</h3>
-            <p>100</p>
+        <Link to={ '/catgame' }><h1>Easter Egg</h1></Link>
+      )
+    } 
+    else if(this.props.currentUser.email === undefined)    
+    {
+      return (
+        <div className="body">
+          <h1>Welcome to Team Manager!</h1>
+          <img src="../../images/cool-cat.gif"/>
+        </div>
+      )
+    } 
+    else {
+      return (
+        <div className="body">
+          <h1>Welcome {this.props.currentUser.name}</h1>
+          <div className="balance-fines">
+            <div>
+              <h3>Balance</h3>
+              <p>{this.props.currentUser.balance}</p>
+            </div>
+            <div>
+              <h3>Fines</h3>
+              <p>{this.props.currentUser.fines}</p>
+            </div>
           </div>
-          <div>
-            <h3>Fines</h3>
-            <p>100</p>
+          <div className="games-panel">
+            <h3>Upcoming Game</h3>
+            <GameCard key={ 1 } game={ "game" }/>
           </div>
         </div>
-        <div className="games-panel">
-          <h3>Upcoming Game</h3>
-          <GameCard key={ 1 } game={ "game" }/>
-        </div>
-      </div>
-    );
-  };
+      );
+    };
   }
 }
 

@@ -60,7 +60,7 @@ class SignUp extends Component {
         <form onSubmit={ this._handleSubmit } >
           <h2>Sign up</h2>
             { fields.map(this.inputField) }
-          <input type="submit" />
+          <input className="button" type="submit" />
         </form>
       </div>
     );

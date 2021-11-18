@@ -2,12 +2,15 @@ import { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-const SERVER_URL_DIV1 = "http://localhost:3000/ladder/afl.json"
+import Loading from '../components/Loading';
+
+const SERVER_URL_DIV1 = "http://localhost:3000/ladder/mon_mixed.json"
 
 class Ladder extends Component {
   constructor() {
     super();
     this.state = {
+      loading: true,
       teams: []
     }
   }
@@ -15,7 +18,10 @@ class Ladder extends Component {
   componentDidMount() {
     const fetchLadder = () => {
       axios(SERVER_URL_DIV1).then((response) => {
-        this.setState({teams: response.data});
+        this.setState({
+          loading: false,
+          teams: response.data
+        });
       })
     }
     fetchLadder();
@@ -40,24 +46,28 @@ class Ladder extends Component {
   }
 
   render() {
-    return (
-      <div className="body">
-        <h2>Ladder</h2>
-        <table>
-          <th>Team</th>
-          <th>Games</th>
-          <th>Wins</th>
-          <th>Draws</th>
-          <th>Losses</th>
-          <th>For</th>
-          <th>Against</th>
-          <th>F/A %</th>
-          <tbody>
-            {this.renderLadder()}
-          </tbody>
-        </table>
-      </div>
-    );
+    if (this.state.loading) {
+      return <Loading />
+    } else {
+      return (
+        <div className="body">
+          <h2>Ladder</h2>
+          <table>
+            <th>Team</th>
+            <th>Games</th>
+            <th>Wins</th>
+            <th>Draws</th>
+            <th>Losses</th>
+            <th>For</th>
+            <th>Against</th>
+            <th>F/A %</th>
+            <tbody>
+              {this.renderLadder()}
+            </tbody>
+          </table>
+        </div>
+      );
+    }
   }
 }
 

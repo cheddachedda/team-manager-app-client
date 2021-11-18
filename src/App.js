@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { BrowserRouter as Router, Routes, Route, Redirect }  from 'react-router-dom';
 import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './css/App.css'
 import Nav from './components/Nav';
@@ -77,7 +78,7 @@ class App extends Component {
       this.setState({ error: error.response.data.error });
     })
   }
-  
+
   // TODO: add if conditionals to render login option before signup
   render() {
     return (

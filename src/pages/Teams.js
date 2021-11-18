@@ -29,7 +29,9 @@ const Teams = () => {
       <h3>Players</h3>
       <ul>
         {team.users &&
-          team.users.map((u) => <li>{u}</li>)}
+          team.users.map((u) =>
+              <li>{u}</li>)
+        }
       </ul>
       <Drinks players={team.users} />
     </div>

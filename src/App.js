@@ -83,20 +83,25 @@ class App extends Component {
     return (
       <Router>
         <Nav currentUser={ this.state.currentUser } />
-        <Routes>
-          <Route path='/' exact element={<Home currentUser={this.state.currentUser}/>} />
-          <Route path='/user' exact element={<Users currentUser={this.state.currentUser}/>} />
-          <Route path='/signin' exact element={<SignIn signIn={this.signIn}/>} />
-          <Route path='/signup' exact element={<SignUp signUp={this.signUp}/>} />
-          <Route path='/ladder' exact element={<Ladder />} />
-          <Route path='/admingames' exact element={<AdminGames />} />
-          <Route path='/gameform' exact element={<GameForm  />} />
-          <Route path='/creategame' exact element={<CreateGame  currentUser={this.state.currentUser}/>} />
-          <Route path='/teams/:id' exact element={<Teams />} />
-          <Route path='/games' exact element={<Games />} />
-          <Route path='/catgame' exact element={<CatGame />} />
-          <Route path='/admin' exact element={<Admin />} />
-        </Routes>
+        <main>
+          <Routes>
+            <Route path='/' exact element={<Home currentUser={this.state.currentUser}/>} />
+            <Route path='/user' exact element={<Users currentUser={this.state.currentUser}/>} />
+            <Route path='/signin' exact element={<SignIn signIn={this.signIn}/>} />
+            <Route path='/signup' exact element={<SignUp signUp={this.signUp}/>} />
+            <Route path='/ladder' exact element={<Ladder />} />
+            <Route path='/admingames' exact element={<AdminGames />} />
+            <Route path='/gameform' exact element={<GameForm  />} />
+            <Route path='/creategame' exact element={<CreateGame  currentUser={this.state.currentUser}/>} />
+            <Route path='/teams/:id' exact element={<Teams />} />
+
+            <Route path='/games' exact element={<Games />} />
+            <Route path='/catgame' exact element={<CatGame />} />
+            <Route path='/admin' exact element={<Admin />} />
+
+          </Routes>
+        </main>
+
       </Router>
     );
   }

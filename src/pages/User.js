@@ -1,8 +1,10 @@
 import { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Users extends Component {
   render() {
     const user = this.props.currentUser;
+
     if (user.id > 0) {
       return (
         <div className="user">
@@ -13,7 +15,9 @@ class Users extends Component {
           <p>Balance: { user.balance }</p>
         </div>
       );
+
     } else {
+
       return (
         <div>
           <h2> Please Sign In to continue </h2>
@@ -22,5 +26,7 @@ class Users extends Component {
     };
   }
 }
+
+
 
 export default Users;

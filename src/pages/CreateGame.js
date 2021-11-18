@@ -24,7 +24,7 @@ render() {
   if (this.props.currentUser.admin){
     return (
     <div>
-      <Link to={ '/AdminGames.js' }>Games List</Link>
+      <Link to={ '/AdminGames' }>Games List</Link>
       <GameForm onSubmit={this.saveGame} />
 
     </div>)

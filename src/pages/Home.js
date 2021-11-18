@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import GameCard from '../components/GameCard';
+import { Link } from 'react-router-dom';
 
 class Home extends Component {
   constructor() {
@@ -10,6 +11,13 @@ class Home extends Component {
   }
 
   render() {
+    const user = this.props.currentUser;
+
+    if (user.email === "meow@meow") {
+      return (
+      <Link to={ '/CatGame' }><h1>Easter Egg</h1></Link>
+    )
+  } else {
     return (
       <div className="home-body">
         <h2>Welcome [USER]</h2>
@@ -27,6 +35,7 @@ class Home extends Component {
         </div>
       </div>
     );
+  };
   }
 }
 

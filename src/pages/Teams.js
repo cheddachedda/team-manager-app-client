@@ -21,7 +21,7 @@ const Teams = () => {
   }
 
   return (
-    <div>
+    <div className="body">
       <h2>{team.name}</h2>
       <p>Games: {team.games_played}</p>
       <p>Wins: {team.wins}</p>

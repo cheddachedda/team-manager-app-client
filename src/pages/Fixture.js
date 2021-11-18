@@ -34,7 +34,7 @@ class Fixture extends Component {
   
   render() {
     return (
-      <div>
+      <div className="body">
         <h2>Fixture</h2>
         <table>
           <tbody>

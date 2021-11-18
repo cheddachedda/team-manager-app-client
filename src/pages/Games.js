@@ -33,7 +33,7 @@ class Games extends Component {
 
   render() {
     return(
-      <div>
+      <div className="body">
         <h2>Games Page</h2>
         <GamesNavBar
           current={ this.state.currentRound }

@@ -37,7 +37,7 @@ class Ladder extends Component {
 
   render() {
     return (
-      <div>
+      <div className="body">
         <h2>Ladder</h2>
         <table>
           <th>Team</th>

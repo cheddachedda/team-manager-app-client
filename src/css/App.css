@@ -22,19 +22,22 @@ footer {
 }
 
 form {
+  border-radius: 2rem;
   margin: 3rem auto;
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 300px;
   padding: 1rem;
 
   box-shadow: 4px 10px 18px 4px rgba(0, 0, 0, 0.33);
-  background-color: burlywood;
+  background-color: #1C1C22;
 }
 
 form input{
+  font-size: 1rem;
   margin: 1rem;
+  padding: 0.5rem;
+  width: 15rem;
 }
 
 div.home-panel{

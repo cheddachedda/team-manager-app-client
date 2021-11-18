@@ -1,4 +1,4 @@
-.drinksSlotMachine, h3 {
+.drinks-slot-machine, h3 {
   text-transform: uppercase;
 }
 
@@ -27,7 +27,7 @@ section {
   cursor: default;
 }
 
-.container {
+.drink-container {
   position: absolute;
   top: 2px;
   width: 100%;

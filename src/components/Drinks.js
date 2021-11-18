@@ -1,4 +1,4 @@
-import { useRef, useState} from 'react';
+import { useRef, useState } from 'react';
 
 function Drinks(props){
   const [player1,setPlayer1] = useState("");
@@ -11,6 +11,7 @@ function Drinks(props){
     setTimeout(() => {
       setRolling(false);
     }, 700);
+
     drinkRef.forEach((drink, i) => {
       const selected = triggerDrinkRotation(drink.current);
       setPlayer1(selected);
@@ -31,12 +32,12 @@ function Drinks(props){
   };
 
   return (
-      <div class='drinks-slot-machine'>
+      <div className='drinks-slot-machine'>
       <h3> Who's buying drinks?</h3>
         <div className="slot">
           <section>
-            <div className="container" ref={drinkRef[0]}>
-              {players &&
+            <div className="drink-container" ref={drinkRef[0]}>
+              { players &&
                 players.map((player, i) => (
                 <div key={i}>
                   <span>{player}</span>

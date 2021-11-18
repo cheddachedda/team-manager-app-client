@@ -4,7 +4,7 @@ import GameForm from '../components/GameForm.js'
 import { Link } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 
-const SERVER_URL = "http://localhost:3000/games.json";
+const SERVER_URL = "https://obscure-chamber-58161.herokuapp.com/games.json";
 
 
 class CreateGame extends Component {

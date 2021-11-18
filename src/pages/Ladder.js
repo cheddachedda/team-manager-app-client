@@ -2,7 +2,7 @@ import { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-const SERVER_URL_DIV1 = "http://localhost:3000/ladder/afl.json"
+const SERVER_URL_DIV1 = "https://obscure-chamber-58161.herokuapp.com/ladder/afl.json"
 
 class Ladder extends Component {
   constructor() {

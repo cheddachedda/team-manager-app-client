@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import '../css/Slots.css'
 
-const SERVER_URL = `http://localhost:3000/teams/`
+const SERVER_URL = `https://obscure-chamber-58161.herokuapp.com//teams/`
 
 const Teams = () => {
   const {id} = useParams();

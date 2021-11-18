@@ -2,7 +2,7 @@ import { Component } from 'react';
 import axios from 'axios'
 
 
-const SERVER_URL = "http://localhost:3000/teams.json";
+const SERVER_URL = "https://obscure-chamber-58161.herokuapp.com//teams.json";
 
 class SignUp extends Component {
     constructor() {

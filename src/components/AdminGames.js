@@ -5,7 +5,7 @@ import GameForm from './GameForm.js'
 import GamesNavBar from '../components/GamesNavBar';
 import CreateGame from '../pages/CreateGame.js'
 
-const SERVER_URL = "http://localhost:3000/games.json";
+const SERVER_URL = "https://obscure-chamber-58161.herokuapp.com/games.json";
 
 class AdminGames extends Component {
   constructor() {

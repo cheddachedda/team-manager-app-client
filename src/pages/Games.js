@@ -4,7 +4,7 @@ import axios from 'axios';
 import GamesNavBar from '../components/GamesNavBar';
 import GameCard from '../components/GameCard';
 
-const SERVER_URL = "http://localhost:3000/games/"
+const SERVER_URL = "https://obscure-chamber-58161.herokuapp.com//games/"
 
 class Games extends Component {
   constructor() {

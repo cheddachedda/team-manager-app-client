@@ -77,7 +77,7 @@ class App extends Component {
       this.setState({ error: error.response.data.error });
     })
   }
-  
+
   // TODO: add if conditionals to render login option before signup
   render() {
     return (

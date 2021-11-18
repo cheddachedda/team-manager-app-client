@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import axios from 'axios';
 
-const SERVER_URL = "http://localhost:3000/teams.json"
+const SERVER_URL = "https://obscure-chamber-58161.herokuapp.com//teams.json"
 
 class Fixture extends Component {
   constructor() {
@@ -10,7 +10,7 @@ class Fixture extends Component {
       teams: []
     }
   }
-  
+
   componentDidMount() {
     const fetchFixture = () => {
       axios(SERVER_URL).then((response) => {
@@ -19,7 +19,7 @@ class Fixture extends Component {
     }
     fetchFixture();
   }
-  
+
   renderFixture() {
     return this.state.teams.map((team, index) => {
       const {name, id} = team
@@ -31,7 +31,7 @@ class Fixture extends Component {
       )
     })
   }
-  
+
   render() {
     return (
       <div className="body">

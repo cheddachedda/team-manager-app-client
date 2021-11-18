@@ -6,7 +6,7 @@ const GameCard = (props) => {
       <div> { game.home_score } v { game.away_score } </div>
       <div><b>{ game.away }</b>
       </div><div/>
-      <div>Round: { game.round }</div><div> | </div><div>Venue: { game.venue }</div>
+      <div>Round: { game.round_no }</div><div> | </div><div>Venue: { game.venue }</div>
     </div>
   )
 };

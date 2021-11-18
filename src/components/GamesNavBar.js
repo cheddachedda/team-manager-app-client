@@ -28,12 +28,12 @@ const GamesNavBar = (props) => {
 
   const selectRound = (event) => {
     event.preventDefault();
-    props.selectRound(event.target.name);
+    props.selectRound(Number(event.target.name));
   }
 
   // TODO: Get an array of rounds from the backend.
   // And get it from props from Games.js
-  const rounds = [ '1', '2', '3', '4', '5', '6', 'SF', 'GF' ];
+  const rounds = [ 1, 2, 3, 4, 5, 6 ];
 
   return (
     <div>

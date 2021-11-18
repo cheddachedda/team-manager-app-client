@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { BrowserRouter as Router, Routes, Route, Redirect }  from 'react-router-dom';
 import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './css/App.css'
 import Nav from './components/Nav';

@@ -2,20 +2,27 @@ import { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-const SERVER_URL_DIV1 = "https://obscure-chamber-58161.herokuapp.com/ladder/afl.json"
+import Loading from '../components/Loading';
+
+const SERVER_URL_DIV1 = "https://obscure-chamber-58161.herokuapp.com/ladder/mon_mixed.json"
 
 class Ladder extends Component {
   constructor() {
     super();
     this.state = {
+      loading: false,
       teams: []
     }
   }
 
   componentDidMount() {
+    this.setState({ loading: true });
     const fetchLadder = () => {
       axios(SERVER_URL_DIV1).then((response) => {
-        this.setState({teams: response.data});
+        this.setState({
+          loading: false,
+          teams: response.data
+        });
       })
     }
     fetchLadder();
@@ -53,6 +60,7 @@ class Ladder extends Component {
           <th>Against</th>
           <th>F/A %</th>
           <tbody>
+            { this.state.loading && <Loading /> }
             {this.renderLadder()}
           </tbody>
         </table>

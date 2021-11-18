@@ -10,12 +10,13 @@ class Ladder extends Component {
   constructor() {
     super();
     this.state = {
-      loading: true,
+      loading: false,
       teams: []
     }
   }
 
   componentDidMount() {
+    this.setState({ loading: true });
     const fetchLadder = () => {
       axios(SERVER_URL_DIV1).then((response) => {
         this.setState({
@@ -46,28 +47,25 @@ class Ladder extends Component {
   }
 
   render() {
-    if (this.state.loading) {
-      return <Loading />
-    } else {
-      return (
-        <div className="body">
-          <h2>Ladder</h2>
-          <table>
-            <th>Team</th>
-            <th>Games</th>
-            <th>Wins</th>
-            <th>Draws</th>
-            <th>Losses</th>
-            <th>For</th>
-            <th>Against</th>
-            <th>F/A %</th>
-            <tbody>
-              {this.renderLadder()}
-            </tbody>
-          </table>
-        </div>
-      );
-    }
+    return (
+      <div className="body">
+        <h2>Ladder</h2>
+        <table>
+          <th>Team</th>
+          <th>Games</th>
+          <th>Wins</th>
+          <th>Draws</th>
+          <th>Losses</th>
+          <th>For</th>
+          <th>Against</th>
+          <th>F/A %</th>
+          <tbody>
+            { this.state.loading && <Loading /> }
+            {this.renderLadder()}
+          </tbody>
+        </table>
+      </div>
+    );
   }
 }
 

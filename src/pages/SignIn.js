@@ -31,7 +31,7 @@ class SignIn extends Component {
 
   render() {
     return (
-      <div>
+      <div className="body">
         <form onSubmit={ this._handleSubmit }>
           <h2>Sign In</h2>
 
@@ -55,7 +55,7 @@ class SignIn extends Component {
             />
           </label>
 
-          <input type="submit" value="Sign in" />
+          <input className="button" type="submit" value="Sign in" />
 
         </form>
 

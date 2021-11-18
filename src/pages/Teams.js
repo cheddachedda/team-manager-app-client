@@ -21,7 +21,7 @@ const Teams = () => {
   }
 
   return (
-    <div>
+    <div className="body">
       <h2>{team.name}</h2>
       <p>Games: {team.games_played}</p>
       <p>Wins: {team.wins}</p>
@@ -29,7 +29,9 @@ const Teams = () => {
       <h3>Players</h3>
       <ul>
         {team.users &&
-          team.users.map((u) => <li>{u}</li>)}
+          team.users.map((u) =>
+              <li>{u}</li>)
+        }
       </ul>
       <Drinks players={team.users} />
     </div>

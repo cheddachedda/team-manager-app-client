@@ -17,7 +17,6 @@ class Users extends Component {
       );
 
     } else {
-
       return (
         <div>
           <h2> Please Sign In to continue </h2>
@@ -26,7 +25,5 @@ class Users extends Component {
     };
   }
 }
-
-
 
 export default Users;

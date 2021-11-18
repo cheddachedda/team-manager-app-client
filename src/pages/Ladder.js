@@ -2,7 +2,7 @@ import { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-const SERVER_URL = "http://localhost:3000/teams.json"
+const SERVER_URL_DIV1 = "http://localhost:3000/ladder/afl.json"
 
 class Ladder extends Component {
   constructor() {
@@ -14,7 +14,7 @@ class Ladder extends Component {
 
   componentDidMount() {
     const fetchLadder = () => {
-      axios(SERVER_URL).then((response) => {
+      axios(SERVER_URL_DIV1).then((response) => {
         this.setState({teams: response.data});
       })
     }
@@ -23,13 +23,17 @@ class Ladder extends Component {
 
   renderLadder() {
     return this.state.teams.map((team, index) => {
-      const {name, id, wins, losses, games_played} = team
+      const {name, id, wins, losses, games_played, points_for, points_against, points_percentage, draws} = team
       return (
         <tr key={id}>
           <td><Link to={`/teams/${id}`}>{name}</Link></td>
           <td>{games_played}</td>
           <td>{wins}</td>
+          <td>{draws}</td>
           <td>{losses}</td>
+          <td>{points_for}</td>
+          <td>{points_against}</td>
+          <td>{points_percentage}</td>
         </tr>
       )
     })
@@ -37,13 +41,17 @@ class Ladder extends Component {
 
   render() {
     return (
-      <div>
+      <div className="body">
         <h2>Ladder</h2>
         <table>
           <th>Team</th>
           <th>Games</th>
           <th>Wins</th>
+          <th>Draws</th>
           <th>Losses</th>
+          <th>For</th>
+          <th>Against</th>
+          <th>F/A %</th>
           <tbody>
             {this.renderLadder()}
           </tbody>
@@ -52,5 +60,6 @@ class Ladder extends Component {
     );
   }
 }
+
 
 export default Ladder;

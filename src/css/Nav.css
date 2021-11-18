@@ -1,0 +1,23 @@
+nav {
+  background-color: #42414D;
+}
+
+.nav-container {
+  display: flex;
+  margin: 0 auto;
+  max-width: 960px;
+}
+
+.divider {
+  flex-grow: 1;
+}
+
+nav a {
+  padding: 1rem;
+  list-style: none;
+}
+
+nav a:hover {
+  background-color: #07DFFF;
+  color: #2B2933;
+}

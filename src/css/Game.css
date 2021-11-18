@@ -20,6 +20,7 @@ div.game-card{
   display:inline-flex;
   flex-wrap: wrap;
   justify-content: center;
+  box-shadow: 4px 10px 18px 4px rgba(0, 0, 0, 0.33);
 }
 
 div.game-card div{
@@ -32,5 +33,7 @@ div.game-card div:nth-child(4){
   padding: 0;
 }
 
-
+div.body{
+  margin: 1rem;
+}
 

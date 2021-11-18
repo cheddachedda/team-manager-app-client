@@ -23,7 +23,7 @@ render() {
 
   if (this.props.currentUser.admin){
     return (
-    <div>
+    <div className="body">
       <Link to={ '/AdminGames' }>Games List</Link>
       <GameForm onSubmit={this.saveGame} />
 
@@ -32,7 +32,7 @@ render() {
 
   } else {
     return (
-    <div>
+    <div className="body">
       You must be an admin
     </div>
   )

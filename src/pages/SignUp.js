@@ -1,72 +1,109 @@
 import { Component } from 'react';
+import axios from 'axios'
+
+
+const SERVER_URL = "http://localhost:3000/teams.json";
 
 class SignUp extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: '',
-      email: '',
-      password: '',
-      team_id: 0,
-      captain: false
+    constructor() {
+      super();
+      this.state = {
+        name: '',
+        email: '',
+        password: '',
+        captain: false,
+        teams: []
 
+      }
+      this._handleChange = this._handleChange.bind(this);
+      this._handleSubmit = this._handleSubmit.bind(this);
+      this._handleSelect = this._handleSelect.bind(this);
+      this.selectField = this.selectField.bind(this);
     }
-    this._handleChange = this._handleChange.bind(this);
-    this._handleSubmit = this._handleSubmit.bind(this);
-    this.inputField = this.inputField.bind(this);
-  }
 
-  _handleChange(event) {
-    let captain = this.state.captain
-    if(event.target.name === 'captain' ){
-      captain = true
-      this.state.captain = captain
-      console.log(this.state.captain)
-    } else {
+    _handleChange(event) {
+      let captain = this.state.captain
+      if(event.target.name === 'captain' ){
+        captain = true
+        this.state.captain = captain
+        console.log(this.state.captain)
+      } else {
+        this.setState({
+          [event.target.name]: event.target.value
+        });
+      }
+    }
+
+    componentDidMount() {
+      const fetchTeam = () => {
+        axios(SERVER_URL).then((response) => {
+          this.setState({teams: response.data});
+        })
+      }
+      fetchTeam();
+    }
+
+    _handleSelect(event) {
       this.setState({
         [event.target.name]: event.target.value
       });
+      console.log('team selected')
     }
-  }
 
-  _handleSubmit(event) {
-    event.preventDefault();
-    this.props.signUp(this.state);
-  }
+    _handleSubmit(event) {
+      event.preventDefault();
+      this.props.signUp(this.state);
+    }
 
-  inputField(label) {
+    selectField(option) {
 
-    return (
-      <label key={ label }>
-        { label }
-        <input
-          onChange={ this._handleChange }
-          name={ label }
-          // required
-          type={label === 'captain' ? 'checkbox' : label || label === 'team_id' ? 'integer' : label || label === 'name' ? 'text' : label }
-          // value={ this.state[label] }
-        />
+      return (
+        <option key={ option.id } value={option.id}>
+          Team {option.name}
+        </option>
+        );
+    }
 
-      </label>
-    );
-  }
+      render() {
+      const fields = Object.keys(this.state); // this.state's keys as an array
 
+        return (
+          <div>
 
-  render() {
-    const fields = Object.keys(this.state); // this.state's keys as an array
+            <form onSubmit={ this._handleSubmit } >
 
-    return (
-      <div>
+              <h2>Sign up</h2>
 
-        <form onSubmit={ this._handleSubmit } >
-          <h2>Sign up</h2>
-            { fields.map(this.inputField) }
-          <input type="submit" />
-        </form>
-      </div>
-    );
-  }
-}
+                <label >
+                  Name
+                  <input type="text" name="name" onChange={ this._handleChange } />
+                </label>
 
+                <label >
+                  Email
+                  <input type="email" name="email" onChange={ this._handleChange } />
+                </label>
 
-export default SignUp;
+                <label >
+                  Password
+                  <input type="password" name="password" onChange={ this._handleChange } />
+                </label>
+
+                <label >
+                  Captain
+                  <input type="checkbox" name="captain" onChange={ this._handleChange } />
+                </label>
+
+                <select name="team_id" onChange={this._handleSelect}>
+                  {this.state.teams.map(this.selectField)}
+                </select>
+
+                <input type="submit"  />
+            </form>
+
+          </div>
+        );
+      }
+    }
+
+    export default SignUp;

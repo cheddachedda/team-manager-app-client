@@ -6,7 +6,7 @@ by Daniel Nguyen, Dean Scotthorne, Matthew Schultz and Stephen Sant
 
 A web application designed to help manage your social sport teams and competitions.
 
-# View the App
+## View the App
 
 Check out the web application [here](https://intense-harbor-51488.herokuapp.com/)!
 
@@ -21,3 +21,11 @@ See the full brief here: [Project-Brief.md](https://gist.github.com/wofockham/fe
 The client side of this project was created through React which gathers information from a Ruby on Rails database which was also created as part of this project.
 
 You can find a link to the server github [here](https://github.com/cheddachedda/team-manager-app-server)
+
+## Co-creators
+
+Dean Scotthorne - [Github](https://github.com/deanmsw)
+
+Matthew Schultz - [Github](https://github.com/Schultzy9)
+
+Stephen Sant - [Github](https://github.com/StephenSant)

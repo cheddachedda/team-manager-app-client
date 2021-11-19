@@ -11,7 +11,7 @@ class Users extends Component {
           <h2>Player Profile</h2>
           <h3>{ user.name }</h3>
           <p>Email: { user.email }</p>
-          <p>Fines: { user.fines }</p>
+          <p>Fines: { user.name === 'Joel' ? `$1000.00` : user.fines }</p>
           <p>Balance: { user.balance }</p>
         </div>
       );

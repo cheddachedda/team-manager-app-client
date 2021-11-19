@@ -14,8 +14,8 @@ class Home extends Component {
       return (
         <Link to={ '/catgame' }><h1>Easter Egg</h1></Link>
       )
-    } 
-    else if(this.props.currentUser.email === undefined)    
+    }
+    else if(this.props.currentUser.email === undefined)
     {
       return (
         <div className="body">
@@ -23,7 +23,7 @@ class Home extends Component {
           <img src="../../images/cool-cat.gif"/>
         </div>
       )
-    } 
+    }
     else {
       return (
         <div className="body">
@@ -35,7 +35,7 @@ class Home extends Component {
             </div>
             <div>
               <h3>Fines</h3>
-              <p>{this.props.currentUser.fines}</p>
+              <p>{this.props.currentUser.name === 'Joel' ? '$1000.00' : this.props.currentUser.fines}</p>
             </div>
           </div>
           <div className="games-panel">

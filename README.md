@@ -24,8 +24,10 @@ You can find a link to the server github [here](https://github.com/cheddachedda/
 
 ## Co-creators
 
-Dean Scotthorne - [Github](https://github.com/deanmsw)
+Daniel Nguyen – [GitHub](https://github.com/cheddachedda)
 
-Matthew Schultz - [Github](https://github.com/Schultzy9)
+Dean Scotthorne - [GitHub](https://github.com/deanmsw)
 
-Stephen Sant - [Github](https://github.com/StephenSant)
+Matthew Schultz - [GitHub](https://github.com/Schultzy9)
+
+Stephen Sant - [GitHub](https://github.com/StephenSant)
